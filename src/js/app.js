@@ -1,23 +1,14 @@
 import { i18n } from './i18n/i18n.js';
 import { modeTabs } from './components/modeTabs.js';
 import { timer } from './utils/timer.js';
+import { timerDisplay } from './components/timerDisplay.js';
 
-const DEFAULT_DURATION = 1500;
-
-const timerDisplay = document.getElementById('timer-display');
 const btnToggle = document.getElementById('btn-toggle');
 const btnReset = document.getElementById('btn-reset');
+const tablist = document.querySelector('[role="tablist"]');
 
-const formatTime = (seconds) => {
-  const hrs = String(Math.floor(seconds / 3600)).padStart(2, '0');
-  const mins = String(Math.floor((seconds % 3600) / 60)).padStart(2, '0');
-  const secs = String(seconds % 60).padStart(2, '0');
-  return `${hrs}:${mins}:${secs}`;
-};
-
-const renderTimer = (seconds) => {
-  timerDisplay.textContent = formatTime(seconds);
-};
+let currentMode = 'pomodoro';
+const CURRENT_SESSION_INDEX = 0;
 
 const assertTranslations = () => {
   const expected = [
@@ -37,7 +28,16 @@ const assertTranslations = () => {
   return true;
 };
 
-timer.setOnTick(renderTimer);
+timer.setOnTick((seconds) => {
+  timerDisplay.render(seconds, currentMode, CURRENT_SESSION_INDEX);
+});
+
+tablist.addEventListener('click', (event) => {
+  const tab = event.target.closest('[role="tab"]');
+  if (!tab || !tab.dataset.mode || tab.dataset.mode === currentMode) return;
+  currentMode = tab.dataset.mode;
+  timer.reset(timerDisplay.getModeDuration(currentMode));
+});
 
 btnToggle.addEventListener('click', () => {
   if (timer.getIsRunning()) {
@@ -48,13 +48,13 @@ btnToggle.addEventListener('click', () => {
 });
 
 btnReset.addEventListener('click', () => {
-  timer.reset(DEFAULT_DURATION);
+  timer.reset(timerDisplay.getModeDuration(currentMode));
 });
 
 i18n.init().then(() => {
   assertTranslations();
   modeTabs.init();
-  renderTimer(timer.getRemainingSeconds());
+  timerDisplay.init();
 });
 
 
