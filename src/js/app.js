@@ -5,6 +5,8 @@ import { timerDisplay } from './components/timerDisplay.js';
 import { controls } from './components/controls.js';
 import { init as initSettingsDrawer, closeDrawer } from './components/settingsDrawer.js';
 import * as durationSettings from './components/durationSettings.js';
+import * as autoStartSettings from './components/autoStartSettings.js';
+import * as intervalSettings from './components/intervalSettings.js';
 import './utils/shortcuts.js';
 
 const tablist = document.querySelector('[role="tablist"]');
@@ -14,16 +16,28 @@ const CURRENT_SESSION_INDEX = 0;
 
 const initSettings = () => {
   initSettingsDrawer();
+  autoStartSettings.render();
+  intervalSettings.render();
+
+  document.getElementById('stepper-dec').addEventListener('click', intervalSettings.decrement);
+  document.getElementById('stepper-inc').addEventListener('click', intervalSettings.increment);
+
   document.getElementById('btn-save-settings').addEventListener('click', () => {
     if (durationSettings.validate()) {
       const newDurations = durationSettings.readFromInputs();
       timerDisplay.setDurations(newDurations);
+      autoStartSettings.readFromToggles();
       timer.reset(timerDisplay.getModeDuration(currentMode));
       controls.updateToggleButton();
       closeDrawer();
     }
   });
-  document.getElementById('btn-default-settings').addEventListener('click', durationSettings.resetDefaults);
+
+  document.getElementById('btn-default-settings').addEventListener('click', () => {
+    durationSettings.resetDefaults();
+    autoStartSettings.resetDefaults();
+    intervalSettings.resetDefaults();
+  });
 };
 
 const assertTranslations = () => {
