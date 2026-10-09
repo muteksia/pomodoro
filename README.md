@@ -6,7 +6,7 @@ A simple, lightweight Pomodoro timer built with vanilla JavaScript. It helps you
 - Adjustable work and break durations
 - Auto‑start next session option
 - Keyboard shortcuts for quick control
-- Sound notifications (optional)
+- Sound notifications
 - Responsive UI works on desktop and mobile
 
 ## Installation
