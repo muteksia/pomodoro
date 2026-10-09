@@ -1,4 +1,5 @@
 import { i18n } from './i18n/i18n.js';
+import { modeTabs } from './components/modeTabs.js';
 
 const assertTranslations = () => {
   const expected = [
@@ -29,5 +30,8 @@ const assertTranslations = () => {
   return true;
 };
 
-i18n.init().then(assertTranslations);
+i18n.init().then(() => {
+  modeTabs.init();
+});
+
 
