@@ -25,7 +25,7 @@
       "shortBreak": "Short Break",
       "longBreak": "Long Break"
     },
-    "ariaLabel": "Time remaining {hours} hours {minutes} minutes {seconds} seconds",
+    "ariaLabel": "Time remaining {minutes} minutes {seconds} seconds",
     "sessionCount": "Session {current} of {total}",
     "sessionDots": {
       "completed": "Completed",
@@ -69,7 +69,7 @@
     "title": "Timer Settings",
     "close": "Close settings panel",
     "sections": {
-      "duration": "Duration (Hours, Minutes, Seconds)",
+      "duration": "Duration (Minutes, Seconds)",
       "unitLabel": "tnum unit"
     },
     "duration": {

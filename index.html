@@ -211,10 +211,10 @@
                     <div aria-live="polite" class="mt-space-xl flex flex-col items-center select-none">
                         <span class="font-label-sm text-label-sm uppercase tracking-widest text-outline mb-2"
                             id="current-phase-label" data-i18n="timer.phaseLabel.pomodoro">Deep Focus</span>
-                        <div aria-label="Time remaining 00 hours 25 minutes 00 seconds"
+                        <div aria-label="Time remaining 25 minutes 00 seconds"
                             class="font-timer-display-desktop text-timer-display-desktop tracking-tight font-light text-on-surface tnum transition-colors duration-300"
                             id="timer-display">
-                            00:25:00
+                            25:00
                         </div>
                         <div
                             class="w-full max-w-[280px] h-1 bg-surface-container-high rounded-full overflow-hidden mt-space-sm mb-space-lg">
@@ -303,7 +303,7 @@
                         <div>
                             <div class="flex items-center justify-between mb-space-sm">
                                 <span class="font-label-md text-label-md text-on-surface uppercase tracking-wider"
-                                    data-i18n="settings.sections.duration">Duration (Hours, Minutes, Seconds)</span>
+                                    data-i18n="settings.sections.duration">Duration (Minutes, Seconds)</span>
                                 <span class="font-label-sm text-label-sm text-outline"
                                     data-i18n="settings.sections.unitLabel">tnum unit</span>
                             </div>
@@ -311,15 +311,7 @@
                                 <div class="bg-surface-container p-space-sm rounded-DEFAULT">
                                     <span class="font-label-sm text-label-sm text-on-surface-variant mb-1.5 block"
                                         data-i18n="settings.duration.pomodoro">Pomodoro</span>
-                                    <div class="grid grid-cols-3 gap-2">
-                                        <div>
-                                            <input aria-label="Pomodoro hours"
-                                                class="w-full bg-surface-container-high text-center text-on-surface rounded py-1.5 font-label-md text-label-md focus:bg-surface-container-highest focus:text-primary outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
-                                                id="input-pomo-h" max="23" min="0" type="number" value="0" />
-                                            <span
-                                                class="font-label-sm text-label-sm text-outline block text-center mt-1"
-                                                data-i18n="settings.duration.hours">Hours</span>
-                                        </div>
+                                    <div class="grid grid-cols-2 gap-2">
                                         <div>
                                             <input aria-label="Pomodoro minutes"
                                                 class="w-full bg-surface-container-high text-center text-on-surface rounded py-1.5 font-label-md text-label-md focus:bg-surface-container-highest focus:text-primary outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
@@ -342,15 +334,7 @@
                                 <div class="bg-surface-container p-space-sm rounded-DEFAULT">
                                     <span class="font-label-sm text-label-sm text-on-surface-variant mb-1.5 block"
                                         data-i18n="settings.duration.shortBreak">Short Break</span>
-                                    <div class="grid grid-cols-3 gap-2">
-                                        <div>
-                                            <input aria-label="Short break hours"
-                                                class="w-full bg-surface-container-high text-center text-on-surface rounded py-1.5 font-label-md text-label-md focus:bg-surface-container-highest focus:text-primary outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
-                                                id="input-short-h" max="23" min="0" type="number" value="0" />
-                                            <span
-                                                class="font-label-sm text-label-sm text-outline block text-center mt-1"
-                                                data-i18n="settings.duration.hours">Hours</span>
-                                        </div>
+                                    <div class="grid grid-cols-2 gap-2">
                                         <div>
                                             <input aria-label="Short break minutes"
                                                 class="w-full bg-surface-container-high text-center text-on-surface rounded py-1.5 font-label-md text-label-md focus:bg-surface-container-highest focus:text-primary outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
@@ -373,15 +357,7 @@
                                 <div class="bg-surface-container p-space-sm rounded-DEFAULT">
                                     <span class="font-label-sm text-label-sm text-on-surface-variant mb-1.5 block"
                                         data-i18n="settings.duration.longBreak">Long Break</span>
-                                    <div class="grid grid-cols-3 gap-2">
-                                        <div>
-                                            <input aria-label="Long break hours"
-                                                class="w-full bg-surface-container-high text-center text-on-surface rounded py-1.5 font-label-md text-label-md focus:bg-surface-container-highest focus:text-primary outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
-                                                id="input-long-h" max="23" min="0" type="number" value="0" />
-                                            <span
-                                                class="font-label-sm text-label-sm text-outline block text-center mt-1"
-                                                data-i18n="settings.duration.hours">Hours</span>
-                                        </div>
+                                    <div class="grid grid-cols-2 gap-2">
                                         <div>
                                             <input aria-label="Long break minutes"
                                                 class="w-full bg-surface-container-high text-center text-on-surface rounded py-1.5 font-label-md text-label-md focus:bg-surface-container-highest focus:text-primary outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"

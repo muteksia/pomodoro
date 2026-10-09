@@ -23,9 +23,9 @@ const DOT_CLASSES = {
 const setDurations = (durations) => {
     store.setState({
         durations: {
-            pomodoro: toSeconds(durations.pomodoro.hours, durations.pomodoro.minutes, durations.pomodoro.seconds),
-            short: toSeconds(durations.short.hours, durations.short.minutes, durations.short.seconds),
-            long: toSeconds(durations.long.hours, durations.long.minutes, durations.long.seconds)
+            pomodoro: toSeconds(durations.pomodoro.minutes, durations.pomodoro.seconds),
+            short: toSeconds(durations.short.minutes, durations.short.seconds),
+            long: toSeconds(durations.long.minutes, durations.long.seconds)
         }
     });
 };
