@@ -7,12 +7,11 @@ import { init as initSettingsDrawer, closeDrawer } from './components/settingsDr
 import * as durationSettings from './components/durationSettings.js';
 import * as autoStartSettings from './components/autoStartSettings.js';
 import * as intervalSettings from './components/intervalSettings.js';
+import { completeSession } from './components/sessionCycle.js';
+import store from './store.js';
 import './utils/shortcuts.js';
 
 const tablist = document.querySelector('[role="tablist"]');
-
-let currentMode = 'pomodoro';
-const CURRENT_SESSION_INDEX = 0;
 
 const initSettings = () => {
   initSettingsDrawer();
@@ -27,7 +26,7 @@ const initSettings = () => {
       const newDurations = durationSettings.readFromInputs();
       timerDisplay.setDurations(newDurations);
       autoStartSettings.readFromToggles();
-      timer.reset(timerDisplay.getModeDuration(currentMode));
+      timer.reset(timerDisplay.getModeDuration(store.getState().mode));
       controls.updateToggleButton();
       closeDrawer();
     }
@@ -59,16 +58,24 @@ const assertTranslations = () => {
 };
 
 timer.setOnTick((seconds) => {
-  timerDisplay.render(seconds, currentMode, CURRENT_SESSION_INDEX);
+  timerDisplay.render(seconds, store.getState().mode, store.getState().currentSession - 1);
+});
+
+timer.setOnComplete(() => {
+  completeSession();
 });
 
 tablist.addEventListener('click', (event) => {
   const tab = event.target.closest('[role="tab"]');
-  if (!tab || !tab.dataset.mode || tab.dataset.mode === currentMode) return;
-  currentMode = tab.dataset.mode;
-  timer.reset(timerDisplay.getModeDuration(currentMode));
+  if (!tab || !tab.dataset.mode || tab.dataset.mode === store.getState().mode) return;
+  const newMode = tab.dataset.mode;
+  store.setState({ mode: newMode });
+  timer.reset(timerDisplay.getModeDuration(newMode));
+  modeTabs.setActiveTab(newMode);
+  timerDisplay.render(timer.getRemainingSeconds(), newMode, store.getState().currentSession);
   controls.updateToggleButton();
 });
+
 
 i18n.init().then(() => {
   assertTranslations();

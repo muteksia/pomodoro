@@ -1,6 +1,7 @@
 import { timer } from '../utils/timer.js';
 import { timerDisplay } from './timerDisplay.js';
-import { modeTabs } from './modeTabs.js';
+import store from '../store.js';
+import { skipSession } from './sessionCycle.js';
 
 const btnToggle = document.getElementById('btn-toggle');
 const btnReset = document.getElementById('btn-reset');
@@ -24,12 +25,13 @@ const toggleTimer = () => {
 };
 
 const resetTimer = () => {
-    timer.reset(timerDisplay.getModeDuration(modeTabs.getCurrentMode()));
+    const { mode } = store.getState();
+    timer.reset(timerDisplay.getModeDuration(mode));
     updateToggleButton();
 };
 
 const skipPhase = () => {
-    timer.reset(timerDisplay.getModeDuration(modeTabs.getCurrentMode()));
+    skipSession();
     updateToggleButton();
 };
 

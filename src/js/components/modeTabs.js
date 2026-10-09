@@ -1,5 +1,6 @@
+import store from '../store.js';
+
 export const modeTabs = (() => {
-    let currentMode = 'pomodoro';
     const tabsContainer = document.querySelector('[role="tablist"]');
     const tabs = tabsContainer?.querySelectorAll('[role="tab"]');
 
@@ -20,25 +21,13 @@ export const modeTabs = (() => {
                 indicator.classList.toggle('scale-100', isActive);
             }
         });
-        currentMode = mode;
-    };
-
-    const handleTabClick = (event) => {
-        const tab = event.target.closest('[role="tab"]');
-        if (!tab) return;
-        const mode = tab.dataset.mode;
-        if (mode && mode !== currentMode) {
-            setActiveTab(mode);
-        }
     };
 
     const init = () => {
-        if (tabsContainer) {
-            tabsContainer.addEventListener('click', handleTabClick);
-        }
+        setActiveTab(store.getState().mode);
     };
 
-    const getCurrentMode = () => currentMode;
+    const getCurrentMode = () => store.getState().mode;
 
     return { init, getCurrentMode, setActiveTab };
 })();

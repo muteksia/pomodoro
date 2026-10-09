@@ -3,6 +3,7 @@ export const timer = (() => {
     let isRunning = false;
     let intervalId = null;
     let onTick = null;
+    let onComplete = null;
 
     const notify = () => {
         if (onTick) onTick(remainingSeconds);
@@ -14,7 +15,7 @@ export const timer = (() => {
         intervalId = setInterval(() => {
             remainingSeconds -= 1;
             notify();
-            if (remainingSeconds <= 0) pause();
+            if (remainingSeconds <= 0) { pause(); complete(); }
         }, 1000);
     };
 
@@ -22,6 +23,9 @@ export const timer = (() => {
         isRunning = false;
         clearInterval(intervalId);
         intervalId = null;
+    };
+    const complete = () => {
+        if (onComplete) onComplete();
     };
 
     const reset = (seconds) => {
@@ -33,9 +37,12 @@ export const timer = (() => {
     const setOnTick = (handler) => {
         onTick = handler;
     };
+    const setOnComplete = (handler) => {
+        onComplete = handler;
+    };
 
     const getRemainingSeconds = () => remainingSeconds;
     const getIsRunning = () => isRunning;
 
-    return { start, pause, reset, setOnTick, getRemainingSeconds, getIsRunning };
+    return { start, pause, reset, setOnTick, setOnComplete, getRemainingSeconds, getIsRunning };
 })();
