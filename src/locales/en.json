@@ -1,0 +1,138 @@
+{
+  "app": {
+    "title": "Pomodoro",
+    "brand": "Fokus"
+  },
+  "nav": {
+    "timer": "Timer",
+    "insights": "Insights",
+    "settings": "Settings"
+  },
+  "header": {
+    "soundEffects": "Sound effects",
+    "shortcuts": "Shortcuts",
+    "shortcutSpace": "Space"
+  },
+  "tabs": {
+    "pomodoro": "Pomodoro",
+    "shortBreak": "Short Break",
+    "longBreak": "Long Break",
+    "ariaLabel": "Session Mode"
+  },
+  "timer": {
+    "phaseLabel": {
+      "pomodoro": "Deep Focus",
+      "shortBreak": "Short Break",
+      "longBreak": "Long Break"
+    },
+    "ariaLabel": "Time remaining {hours} hours {minutes} minutes {seconds} seconds",
+    "sessionCount": "Session {current} of {total}",
+    "sessionDots": {
+      "completed": "Completed",
+      "active": "In progress",
+      "upcoming": "Upcoming",
+      "cycleComplete": "Cycle complete"
+    }
+  },
+  "controls": {
+    "reset": {
+      "label": "Reset",
+      "ariaLabel": "Reset current session",
+      "title": "Reset session (R)"
+    },
+    "toggle": {
+      "start": "Start",
+      "pause": "Pause",
+      "ariaLabelStart": "Start timer",
+      "ariaLabelPause": "Pause timer"
+    },
+    "skip": {
+      "label": "Skip",
+      "ariaLabel": "Skip to next phase",
+      "title": "Skip to next session (L)"
+    }
+  },
+  "footer": {
+    "settingsButton": {
+      "label": "Timer Settings",
+      "shortcut": "P",
+      "ariaLabel": "Open timer settings"
+    },
+    "notification": {
+      "indicator": "Notification permission",
+      "statusNotActive": "Notification Permission Not Active",
+      "statusActive": "Notification Permission Active",
+      "enableButton": "Enable"
+    }
+  },
+  "settings": {
+    "title": "Timer Settings",
+    "close": "Close settings panel",
+    "sections": {
+      "duration": "Duration (Hours, Minutes, Seconds)",
+      "unitLabel": "tnum unit"
+    },
+    "duration": {
+      "pomodoro": "Pomodoro",
+      "shortBreak": "Short Break",
+      "longBreak": "Long Break",
+      "hours": "Hours",
+      "minutes": "Minutes",
+      "seconds": "Seconds",
+      "ariaLabels": {
+        "pomodoroHours": "Pomodoro hours",
+        "pomodoroMinutes": "Pomodoro minutes",
+        "pomodoroSeconds": "Pomodoro seconds",
+        "shortBreakHours": "Short break hours",
+        "shortBreakMinutes": "Short break minutes",
+        "shortBreakSeconds": "Short break seconds",
+        "longBreakHours": "Long break hours",
+        "longBreakMinutes": "Long break minutes",
+        "longBreakSeconds": "Long break seconds"
+      }
+    },
+    "validation": {
+      "error": "Error",
+      "durationError": "Duration must be greater than 0"
+    },
+    "audio": {
+      "title": "Audio",
+      "soundEffects": "Sound Effects",
+      "tickSound": "Tick Sound",
+      "completionSound": "Completion Sound",
+      "volume": "Volume"
+    },
+    "behavior": {
+      "title": "Behavior",
+      "autoStartBreaks": "Auto-start breaks",
+      "autoStartPomodoros": "Auto-start pomodoros",
+      "longBreakInterval": "Long break interval",
+      "sessionsBeforeLongBreak": "Sessions before long break"
+    },
+    "notifications": {
+      "title": "Notifications",
+      "browserNotifications": "Browser Notifications",
+      "permissionStatus": "Permission status",
+      "requestPermission": "Request permission"
+    },
+    "appearance": {
+      "title": "Appearance",
+      "theme": "Theme",
+      "themeLight": "Light",
+      "themeDark": "Dark",
+      "themeSystem": "System"
+    },
+    "data": {
+      "title": "Data",
+      "exportData": "Export Data",
+      "importData": "Import Data",
+      "clearData": "Clear All Data"
+    },
+    "about": {
+      "title": "About",
+      "version": "Version",
+      "github": "GitHub",
+      "license": "License"
+    }
+  }
+}
