@@ -58,12 +58,11 @@ const renderSessionDots = (currentSession, total) => {
 
 const render = (seconds, mode, currentSession) => {
     const total = store.getState().longBreakInterval;
-    const displaySession = mode === 'short' ? Math.max(1, currentSession - 1) : currentSession;
-    const dotsValue = mode === 'long' ? total + 1 : displaySession;
+    const displaySession = mode === 'pomodoro' ? currentSession : Math.max(1, currentSession - 1);
     renderTimer(seconds);
     renderProgress(seconds, getModeDuration(mode));
     renderPhaseLabel(mode);
-    renderSessionDots(dotsValue, total);
+    renderSessionDots(displaySession, total);
     sessionCountText.textContent = i18n.t('timer.sessionCount', {
         current: displaySession,
         total
