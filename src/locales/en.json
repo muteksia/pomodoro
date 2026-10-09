@@ -8,11 +8,6 @@
     "insights": "Insights",
     "settings": "Settings"
   },
-  "header": {
-    "soundEffects": "Sound effects",
-    "shortcuts": "Shortcuts",
-    "shortcutSpace": "Space"
-  },
   "tabs": {
     "pomodoro": "Pomodoro",
     "shortBreak": "Short Break",
