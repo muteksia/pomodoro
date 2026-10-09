@@ -1,0 +1,56 @@
+#settings-backdrop {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(9, 15, 21, 0.7);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    z-index: 50;
+    transition: opacity 300ms ease;
+}
+
+#settings-backdrop.opacity-0 {
+    opacity: 0;
+}
+
+#settings-backdrop.pointer-events-none {
+    pointer-events: none;
+}
+
+#settings-backdrop.opacity-100 {
+    opacity: 1;
+}
+
+#settings-backdrop.pointer-events-auto {
+    pointer-events: auto;
+}
+
+#settings-drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    max-width: 390px;
+    background-color: #171c23;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    z-index: 50;
+    transform: translateX(100%);
+    transition: transform 300ms ease-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow-y: auto;
+}
+
+#settings-drawer.translate-x-0 {
+    transform: translateX(0);
+}
+
+#settings-drawer.translate-x-full {
+    transform: translateX(100%);
+}
+
+#settings-drawer:focus,
+#settings-drawer:focus-visible {
+    outline: none;
+}

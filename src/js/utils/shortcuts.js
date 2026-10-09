@@ -5,6 +5,7 @@ const isInputFocused = () => {
     return activeElement && (activeElement.tagName === 'INPUT' || activeElement.tagName === 'TEXTAREA');
 };
 
+// Drawer state management – use CSS classes defined in src/css/components/drawer.css
 const setDrawerOpen = (isOpen) => {
     const backdrop = document.getElementById('settings-backdrop');
     const drawer = document.getElementById('settings-drawer');
@@ -14,6 +15,7 @@ const setDrawerOpen = (isOpen) => {
     backdrop.classList.toggle('pointer-events-auto', isOpen);
     drawer.classList.toggle('translate-x-full', !isOpen);
     drawer.classList.toggle('translate-x-0', isOpen);
+    drawer.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
 };
 
 const isDrawerOpen = () => !document.getElementById('settings-drawer').classList.contains('translate-x-full');

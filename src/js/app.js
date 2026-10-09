@@ -3,6 +3,7 @@ import { modeTabs } from './components/modeTabs.js';
 import { timer } from './utils/timer.js';
 import { timerDisplay } from './components/timerDisplay.js';
 import { controls } from './components/controls.js';
+import { init as initSettingsDrawer } from './components/settingsDrawer.js';
 import './utils/shortcuts.js';
 
 const tablist = document.querySelector('[role="tablist"]');
@@ -45,6 +46,7 @@ i18n.init().then(() => {
   modeTabs.init();
   timerDisplay.init();
   controls.init();
+  initSettingsDrawer();
 });
 
 
