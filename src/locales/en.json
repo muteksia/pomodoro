@@ -1,7 +1,7 @@
 {
   "app": {
     "title": "Pomodoro",
-    "brand": "Fokus"
+    "brand": "Pomodoro"
   },
   "nav": {
     "timer": "Timer",

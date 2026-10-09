@@ -1,14 +1,538 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Pomodoro</title>
+    <meta content="web_standard" name="shell-type" />
+
+    <title data-i18n="app.title">Pomodoro</title>
+
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed-variant": "#881d24",
+                        "primary-fixed-dim": "#4fdbc8",
+                        "tertiary": "#ffb3b0",
+                        "on-secondary-container": "#00302b",
+                        "primary": "#4fdbc8",
+                        "on-primary": "#003731",
+                        "on-error": "#690005",
+                        "on-tertiary-fixed": "#410006",
+                        "tertiary-fixed": "#ffdad8",
+                        "on-secondary-fixed": "#00201d",
+                        "surface-container-highest": "#30353d",
+                        "on-surface": "#dee3ec",
+                        "on-surface-variant": "#bbcac6",
+                        "surface-container-high": "#252a32",
+                        "inverse-surface": "#dee3ec",
+                        "primary-fixed": "#71f8e4",
+                        "on-secondary-fixed-variant": "#005049",
+                        "error-container": "#93000a",
+                        "outline-variant": "#3c4947",
+                        "surface-variant": "#30353d",
+                        "surface": "#0e141a",
+                        "inverse-primary": "#006b5f",
+                        "error": "#ffb4ab",
+                        "on-tertiary": "#670211",
+                        "secondary-fixed": "#89f5e7",
+                        "primary-container": "#14b8a6",
+                        "surface-dim": "#0e141a",
+                        "tertiary-fixed-dim": "#ffb3b0",
+                        "surface-container-lowest": "#090f15",
+                        "surface-container-low": "#171c23",
+                        "on-secondary": "#003732",
+                        "surface-tint": "#4fdbc8",
+                        "on-tertiary-container": "#760f19",
+                        "tertiary-container": "#ff7c7b",
+                        "secondary-fixed-dim": "#6bd8cb",
+                        "on-primary-fixed": "#00201c",
+                        "on-error-container": "#ffdad6",
+                        "on-primary-fixed-variant": "#005048",
+                        "secondary": "#6bd8cb",
+                        "surface-container": "#1b2027",
+                        "outline": "#859490",
+                        "inverse-on-surface": "#2c3138",
+                        "on-primary-container": "#00423b",
+                        "background": "#0e141a",
+                        "on-background": "#dee3ec",
+                        "secondary-container": "#29a195",
+                        "surface-bright": "#343a41"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "1.25rem",
+                        "space-xs": "0.25rem",
+                        "space-md": "1rem",
+                        "margin": "2rem",
+                        "gutter": "1.5rem",
+                        "space-xl": "2.5rem",
+                        "space-lg": "1.5rem",
+                        "space-sm": "0.5rem",
+                        "gutter-mobile": "1rem"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "timer-display-mobile": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "timer-display-desktop": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["20px", {
+                            "lineHeight": "28px",
+                            "letterSpacing": "-0.01em",
+                            "fontWeight": "600"
+                        }],
+                        "body-lg": ["16px", {
+                            "lineHeight": "24px",
+                            "letterSpacing": "0",
+                            "fontWeight": "400"
+                        }],
+                        "label-sm": ["11px", {
+                            "lineHeight": "14px",
+                            "letterSpacing": "0.05em",
+                            "fontWeight": "600"
+                        }],
+                        "headline-lg": ["24px", {
+                            "lineHeight": "32px",
+                            "letterSpacing": "-0.02em",
+                            "fontWeight": "600"
+                        }],
+                        "timer-display-mobile": ["56px", {
+                            "lineHeight": "56px",
+                            "letterSpacing": "-0.03em",
+                            "fontWeight": "300"
+                        }],
+                        "body-md": ["14px", {
+                            "lineHeight": "20px",
+                            "letterSpacing": "0",
+                            "fontWeight": "400"
+                        }],
+                        "label-lg": ["14px", {
+                            "lineHeight": "20px",
+                            "letterSpacing": "0.01em",
+                            "fontWeight": "500"
+                        }],
+                        "label-md": ["12px", {
+                            "lineHeight": "16px",
+                            "letterSpacing": "0.02em",
+                            "fontWeight": "500"
+                        }],
+                        "timer-display-desktop": ["96px", {
+                            "lineHeight": "96px",
+                            "letterSpacing": "-0.04em",
+                            "fontWeight": "300"
+                        }]
+                    }
+                }
+            }
+        };
+    </script>
     <link href="src/css/styles.css" rel="stylesheet" />
 </head>
 
-<body>
+<body
+    class="bg-surface font-body-md text-on-surface min-h-screen flex flex-col justify-between selection:bg-primary selection:text-on-primary">
+
+    <header class="fixed top-0 inset-x-0 z-50 bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
+        <div class="h-16 w-full max-w-5xl mx-auto px-margin-mobile md:px-margin flex items-center justify-between">
+            <div class="flex items-center gap-space-lg"><a
+                    class="flex items-center gap-space-sm group focus:outline-none" data-path="timer" href="#"><span
+                        class="w-2.5 h-2.5 rounded-full bg-primary shadow-[0_0_12px_rgba(79,219,200,0.45)] group-hover:scale-110 transition-transform"></span><span
+                        class="font-headline-md text-headline-md tracking-tight text-on-surface"
+                        data-i18n="app.brand">Pomodoro</span></a>
+            </div>
+            <div class="flex items-center gap-space-sm"><button
+                    class="h-9 w-9 rounded-full flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors focus:outline-none focus:ring-2 focus:ring-primary"
+                    title="Sound effects" type="button"><span
+                        class="material-symbols-outlined text-[18px]">volume_up</span></button><button
+                    class="hidden sm:flex h-9 px-space-sm rounded-full items-center justify-center gap-space-xs text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors focus:outline-none focus:ring-2 focus:ring-primary"
+                    title="Shortcuts" type="button"><span
+                        class="material-symbols-outlined text-[16px]">keyboard</span><span
+                        class="font-label-sm text-label-sm uppercase tracking-wider text-outline"
+                        data-i18n="header.shortcutSpace">Space</span></button>
+            </div>
+        </div>
+    </header>
+
+    <main class="w-full pt-16 flex-1 flex flex-col items-center justify-center px-margin-mobile md:px-margin">
+        <div class="w-full max-w-[480px] mx-auto py-space-xl">
+            <div class="flex flex-col w-full relative">
+                <div class="relative w-full max-w-[440px] mx-auto flex flex-col items-center">
+                    <div class="absolute top-28 w-64 h-64 rounded-full bg-primary/10 blur-[80px] pointer-events-none transition-opacity duration-700 opacity-0 -z-10"
+                        id="ambient-glow"></div>
+                    <div aria-label="Session Mode"
+                        class="w-full bg-surface-container-low p-1 rounded-DEFAULT flex items-center justify-between shadow-sm select-none"
+                        role="tablist">
+                        <button aria-selected="true"
+                            class="mode-tab flex-1 py-2 px-space-xs rounded-DEFAULT font-label-md text-label-md flex items-center justify-center gap-1.5 transition-all duration-200 bg-surface-container-high text-on-surface shadow-sm"
+                            data-mode="pomodoro" id="tab-pomodoro" role="tab" type="button">
+                            <span
+                                class="w-1.5 h-1.5 rounded-full bg-primary inline-block transition-transform scale-100"></span>
+                            <span data-i18n="tabs.pomodoro">Pomodoro</span>
+                        </button>
+                        <button aria-selected="false"
+                            class="mode-tab flex-1 py-2 px-space-xs rounded-DEFAULT font-label-md text-label-md flex items-center justify-center gap-1.5 transition-all duration-200 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high/40"
+                            data-mode="short" id="tab-short" role="tab" type="button">
+                            <span
+                                class="w-1.5 h-1.5 rounded-full bg-primary inline-block opacity-0 transition-opacity"></span>
+                            <span data-i18n="tabs.shortBreak">Short Break</span>
+                        </button>
+                        <button aria-selected="false"
+                            class="mode-tab flex-1 py-2 px-space-xs rounded-DEFAULT font-label-md text-label-md flex items-center justify-center gap-1.5 transition-all duration-200 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high/40"
+                            data-mode="long" id="tab-long" role="tab" type="button">
+                            <span
+                                class="w-1.5 h-1.5 rounded-full bg-primary inline-block opacity-0 transition-opacity"></span>
+                            <span data-i18n="tabs.longBreak">Long Break</span>
+                        </button>
+                    </div>
+                    <div aria-live="polite" class="mt-space-xl flex flex-col items-center select-none">
+                        <span class="font-label-sm text-label-sm uppercase tracking-widest text-outline mb-2"
+                            id="current-phase-label" data-i18n="timer.phaseLabel.pomodoro">Deep Focus</span>
+                        <div aria-label="Time remaining 00 hours 25 minutes 00 seconds"
+                            class="font-timer-display-desktop text-timer-display-desktop tracking-tight font-light text-on-surface [font-feature-settings:'tnum'] transition-colors duration-300"
+                            id="timer-display">
+                            00:25:00
+                        </div>
+                        <div
+                            class="w-full max-w-[280px] h-1 bg-surface-container-high rounded-full overflow-hidden mt-space-sm mb-space-lg">
+                            <div class="h-full bg-primary rounded-full w-0 transition-[width] duration-300"
+                                id="session-progress-bar">
+                            </div>
+                        </div>
+                        <div
+                            class="flex items-center gap-space-md bg-surface-container-low px-space-md py-1.5 rounded-full">
+                            <span class="font-label-md text-label-md text-on-surface-variant" id="session-count-text"
+                                data-i18n="timer.sessionCount" data-i18n-attr="data-i18n:timer.sessionCount">Session 2
+                                of 4</span>
+                            <div aria-label="Session cycle progress" class="flex items-center gap-1.5"
+                                id="session-dots-wrapper">
+                                <span class="w-2 h-2 rounded-full bg-primary" title="Completed"></span>
+                                <span class="w-2 h-2 rounded-full bg-primary shadow-[0_0_8px_rgba(79,219,200,0.8)]"
+                                    title="In progress"></span>
+                                <span class="w-2 h-2 rounded-full bg-surface-container-highest" title="Upcoming"></span>
+                                <span class="w-2 h-2 rounded-full bg-surface-container-highest"
+                                    title="Cycle complete"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-full flex items-center justify-center gap-space-md mt-space-xl">
+                        <button aria-label="Reset current session"
+                            class="h-12 px-space-md rounded-DEFAULT bg-surface-container-low hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-all flex items-center justify-center gap-1.5 font-label-md text-label-md active:scale-95"
+                            id="btn-reset" title="Reset sesi (R)" type="button">
+                            <span class="material-symbols-outlined text-[20px]">restart_alt</span>
+                            <span class="hidden sm:inline" data-i18n="controls.reset.label">Reset</span>
+                        </button>
+                        <button aria-label="Start timer"
+                            class="h-14 px-10 rounded-DEFAULT bg-primary hover:bg-primary-fixed-dim text-on-primary font-headline-md text-headline-md flex items-center justify-center gap-2 transition-all shadow-[0_4px_20px_rgba(79,219,200,0.25)] active:scale-95 group"
+                            id="btn-toggle" type="button">
+                            <span class="material-symbols-outlined text-[24px]" id="btn-toggle-icon"
+                                style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+                            <span id="btn-toggle-label" data-i18n="controls.toggle.start">Start</span>
+                        </button>
+                        <button aria-label="Skip to next phase"
+                            class="h-12 px-space-md rounded-DEFAULT bg-surface-container-low hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-all flex items-center justify-center gap-1.5 font-label-md text-label-md active:scale-95"
+                            id="btn-skip" title="Skip to next session (L)" type="button">
+                            <span class="hidden sm:inline" data-i18n="controls.skip.label">Skip</span>
+                            <span class="material-symbols-outlined text-[20px]">skip_next</span>
+                        </button>
+                    </div>
+                    <div class="w-full flex flex-col items-center gap-space-sm mt-space-xl pt-space-md">
+                        <button aria-expanded="false" aria-haspopup="dialog"
+                            class="flex items-center gap-space-xs px-space-md py-1.5 rounded-full bg-surface-container-low hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-colors font-label-md text-label-md"
+                            id="open-settings-btn" type="button">
+                            <span class="material-symbols-outlined text-[18px]">tune</span>
+                            <span data-i18n="footer.settingsButton.label">Timer Settings</span>
+                            <span
+                                class="text-outline text-label-sm font-label-sm ml-1 px-1.5 py-0.5 rounded bg-surface-container-highest"
+                                data-i18n="footer.settingsButton.shortcut">P</span>
+                        </button>
+                        <div class="flex items-center gap-2 px-space-md py-1 rounded-full bg-surface-container-lowest text-outline font-label-sm text-label-sm"
+                            title="Click the settings button to allow browser alerts">
+                            <span class="w-1.5 h-1.5 rounded-full bg-surface-container-highest"
+                                id="notif-indicator"></span>
+                            <span id="notif-status-badge" data-i18n="footer.notification.statusNotActive">Notification
+                                Permission Not Active</span>
+                            <button class="text-primary hover:underline ml-0.5" id="quick-enable-notif" type="button"
+                                data-i18n="footer.notification.enableButton">Enable</button>
+                        </div>
+                    </div>
+                </div>
+                <div aria-hidden="true"
+                    class="fixed inset-0 bg-surface-container-lowest/70 backdrop-blur-sm z-50 transition-opacity duration-300 opacity-0 pointer-events-none"
+                    id="settings-backdrop"></div>
+                <aside aria-labelledby="settings-title" aria-modal="true"
+                    class="fixed top-0 right-0 h-full w-full max-w-[390px] bg-surface-container-low shadow-2xl z-50 transform translate-x-full transition-transform duration-300 ease-out flex flex-col justify-between overflow-y-auto"
+                    id="settings-drawer" role="dialog">
+                    <div
+                        class="p-space-lg flex items-center justify-between bg-surface-container-low sticky top-0 z-10 shadow-sm">
+                        <div class="flex items-center gap-space-sm">
+                            <span class="material-symbols-outlined text-primary text-[20px]">tune</span>
+                            <h2 class="font-headline-md text-headline-md text-on-surface" id="settings-title"
+                                data-i18n="settings.title">Timer Settings</h2>
+                        </div>
+                        <button aria-label="Close settings panel"
+                            class="w-8 h-8 rounded-full flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors"
+                            id="close-settings-btn" type="button">
+                            <span class="material-symbols-outlined text-[20px]">close</span>
+                        </button>
+                    </div>
+                    <div class="p-space-lg flex flex-col gap-space-lg flex-1">
+                        <div>
+                            <div class="flex items-center justify-between mb-space-sm">
+                                <span class="font-label-md text-label-md text-on-surface uppercase tracking-wider"
+                                    data-i18n="settings.sections.duration">Duration (Hours, Minutes, Seconds)</span>
+                                <span class="font-label-sm text-label-sm text-outline"
+                                    data-i18n="settings.sections.unitLabel">tnum unit</span>
+                            </div>
+                            <div class="space-y-space-md">
+                                <div class="bg-surface-container p-space-sm rounded-DEFAULT">
+                                    <span class="font-label-sm text-label-sm text-on-surface-variant mb-1.5 block"
+                                        data-i18n="settings.duration.pomodoro">Pomodoro</span>
+                                    <div class="grid grid-cols-3 gap-2">
+                                        <div>
+                                            <input aria-label="Pomodoro hours"
+                                                class="w-full bg-surface-container-high text-center text-on-surface rounded py-1.5 font-label-md text-label-md focus:bg-surface-container-highest focus:text-primary outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+                                                id="input-pomo-h" max="23" min="0" type="number" value="0" />
+                                            <span
+                                                class="font-label-sm text-label-sm text-outline block text-center mt-1"
+                                                data-i18n="settings.duration.hours">Hours</span>
+                                        </div>
+                                        <div>
+                                            <input aria-label="Pomodoro minutes"
+                                                class="w-full bg-surface-container-high text-center text-on-surface rounded py-1.5 font-label-md text-label-md focus:bg-surface-container-highest focus:text-primary outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+                                                id="input-pomo-m" max="59" min="0" type="number" value="25" />
+                                            <span
+                                                class="font-label-sm text-label-sm text-outline block text-center mt-1"
+                                                data-i18n="settings.duration.minutes">Minutes</span>
+                                        </div>
+                                        <div>
+                                            <input aria-label="Pomodoro seconds"
+                                                class="w-full bg-surface-container-high text-center text-on-surface rounded py-1.5 font-label-md text-label-md focus:bg-surface-container-highest focus:text-primary outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+                                                id="input-pomo-s" max="59" min="0" type="number" value="0" />
+                                            <span
+                                                class="font-label-sm text-label-sm text-outline block text-center mt-1"
+                                                data-i18n="settings.duration.seconds">Seconds</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="bg-surface-container p-space-sm rounded-DEFAULT">
+                                    <span class="font-label-sm text-label-sm text-on-surface-variant mb-1.5 block"
+                                        data-i18n="settings.duration.shortBreak">Short Break</span>
+                                    <div class="grid grid-cols-3 gap-2">
+                                        <div>
+                                            <input aria-label="Short break hours"
+                                                class="w-full bg-surface-container-high text-center text-on-surface rounded py-1.5 font-label-md text-label-md focus:bg-surface-container-highest focus:text-primary outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+                                                id="input-short-h" max="23" min="0" type="number" value="0" />
+                                            <span
+                                                class="font-label-sm text-label-sm text-outline block text-center mt-1"
+                                                data-i18n="settings.duration.hours">Hours</span>
+                                        </div>
+                                        <div>
+                                            <input aria-label="Short break minutes"
+                                                class="w-full bg-surface-container-high text-center text-on-surface rounded py-1.5 font-label-md text-label-md focus:bg-surface-container-highest focus:text-primary outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+                                                id="input-short-m" max="59" min="0" type="number" value="5" />
+                                            <span
+                                                class="font-label-sm text-label-sm text-outline block text-center mt-1"
+                                                data-i18n="settings.duration.minutes">Minutes</span>
+                                        </div>
+                                        <div>
+                                            <input aria-label="Short break seconds"
+                                                class="w-full bg-surface-container-high text-center text-on-surface rounded py-1.5 font-label-md text-label-md focus:bg-surface-container-highest focus:text-primary outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+                                                id="input-short-s" max="59" min="0" type="number" value="0" />
+                                            <span
+                                                class="font-label-sm text-label-sm text-outline block text-center mt-1"
+                                                data-i18n="settings.duration.seconds">Seconds</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="bg-surface-container p-space-sm rounded-DEFAULT">
+                                    <span class="font-label-sm text-label-sm text-on-surface-variant mb-1.5 block"
+                                        data-i18n="settings.duration.longBreak">Long Break</span>
+                                    <div class="grid grid-cols-3 gap-2">
+                                        <div>
+                                            <input aria-label="Long break hours"
+                                                class="w-full bg-surface-container-high text-center text-on-surface rounded py-1.5 font-label-md text-label-md focus:bg-surface-container-highest focus:text-primary outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+                                                id="input-long-h" max="23" min="0" type="number" value="0" />
+                                            <span
+                                                class="font-label-sm text-label-sm text-outline block text-center mt-1"
+                                                data-i18n="settings.duration.hours">Hours</span>
+                                        </div>
+                                        <div>
+                                            <input aria-label="Long break minutes"
+                                                class="w-full bg-surface-container-high text-center text-on-surface rounded py-1.5 font-label-md text-label-md focus:bg-surface-container-highest focus:text-primary outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+                                                id="input-long-m" max="59" min="0" type="number" value="15" />
+                                            <span
+                                                class="font-label-sm text-label-sm text-outline block text-center mt-1"
+                                                data-i18n="settings.duration.minutes">Minutes</span>
+                                        </div>
+                                        <div>
+                                            <input aria-label="Long break seconds"
+                                                class="w-full bg-surface-container-high text-center text-on-surface rounded py-1.5 font-label-md text-label-md focus:bg-surface-container-highest focus:text-primary outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+                                                id="input-long-s" max="59" min="0" type="number" value="0" />
+                                            <span
+                                                class="font-label-sm text-label-sm text-outline block text-center mt-1"
+                                                data-i18n="settings.duration.seconds">Seconds</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <p class="font-label-sm text-label-sm text-error hidden flex items-center gap-1 mt-1"
+                                    id="duration-error-msg">
+                                    <span class="material-symbols-outlined text-[14px]">error</span>
+                                    <span data-i18n="settings.validation.durationError">Durasi minimal 1 detik untuk
+                                        setiap mode.</span>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div>
+                            <span
+                                class="font-label-md text-label-md text-on-surface uppercase tracking-wider block mb-space-sm"
+                                data-i18n="settings.behavior.title">Behavior</span>
+                            <div class="bg-surface-container p-space-sm rounded-DEFAULT space-y-space-sm">
+                                <label class="flex items-center justify-between cursor-pointer py-1">
+                                    <span class="font-body-md text-body-md text-on-surface-variant select-none"
+                                        data-i18n="settings.behavior.autoStartPomodoros">Auto-start pomodoros</span>
+                                    <input class="sr-only peer" id="toggle-auto-pomo" type="checkbox" />
+                                    <div
+                                        class="w-11 h-6 bg-surface-container-highest peer-checked:bg-primary rounded-full relative transition-colors duration-200">
+                                        <div
+                                            class="w-4 h-4 bg-on-surface rounded-full absolute top-1 left-1 peer-checked:left-6 transition-all duration-200">
+                                        </div>
+                                    </div>
+                                </label>
+                                <label class="flex items-center justify-between cursor-pointer py-1">
+                                    <span class="font-body-md text-body-md text-on-surface-variant select-none"
+                                        data-i18n="settings.behavior.autoStartBreaks">Auto-start breaks</span>
+                                    <input class="sr-only peer" id="toggle-auto-short" type="checkbox" />
+                                    <div
+                                        class="w-11 h-6 bg-surface-container-highest peer-checked:bg-primary rounded-full relative transition-colors duration-200">
+                                        <div
+                                            class="w-4 h-4 bg-on-surface rounded-full absolute top-1 left-1 peer-checked:left-6 transition-all duration-200">
+                                        </div>
+                                    </div>
+                                </label>
+                                <label class="flex items-center justify-between cursor-pointer py-1">
+                                    <span class="font-body-md text-body-md text-on-surface-variant select-none"
+                                        data-i18n="settings.behavior.autoStartBreaks">Auto-start breaks</span>
+                                    <input class="sr-only peer" id="toggle-auto-long" type="checkbox" />
+                                    <div
+                                        class="w-11 h-6 bg-surface-container-highest peer-checked:bg-primary rounded-full relative transition-colors duration-200">
+                                        <div
+                                            class="w-4 h-4 bg-on-surface rounded-full absolute top-1 left-1 peer-checked:left-6 transition-all duration-200">
+                                        </div>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div>
+                            <span
+                                class="font-label-md text-label-md text-on-surface uppercase tracking-wider block mb-space-sm"
+                                data-i18n="settings.behavior.longBreakInterval">Long break interval</span>
+                            <div
+                                class="bg-surface-container p-space-md rounded-DEFAULT flex items-center justify-between">
+                                <div>
+                                    <span class="font-body-md text-body-md text-on-surface block"
+                                        data-i18n="settings.behavior.sessionsBeforeLongBreak">Sessions before long
+                                        break</span>
+                                    <span class="font-label-sm text-label-sm text-outline"
+                                        data-i18n="settings.behavior.sessionsBeforeLongBreak">Sessions before long
+                                        break</span>
+                                </div>
+                                <div class="flex items-center bg-surface-container-high rounded-full p-1">
+                                    <button aria-label="Decrease interval"
+                                        class="w-7 h-7 rounded-full flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-highest active:scale-95 transition-all"
+                                        id="stepper-dec" type="button">
+                                        <span class="material-symbols-outlined text-[16px]">remove</span>
+                                    </button>
+                                    <span
+                                        class="w-8 text-center font-headline-md text-headline-md text-primary [font-feature-settings:'tnum']"
+                                        id="interval-display-val">4</span>
+                                    <button aria-label="Increase interval"
+                                        class="w-7 h-7 rounded-full flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-highest active:scale-95 transition-all"
+                                        id="stepper-inc" type="button">
+                                        <span class="material-symbols-outlined text-[16px]">add</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <span
+                                class="font-label-md text-label-md text-on-surface uppercase tracking-wider block mb-space-sm"
+                                data-i18n="settings.notifications.title">Notifications</span>
+
+                            <div class="bg-surface-container p-space-md rounded-DEFAULT space-y-space-sm">
+
+                                <p class="font-body-md text-body-md text-on-surface-variant"
+                                    data-i18n="settings.notifications.description">
+                                    Browser notifications are active to remind you of session changes on time without
+                                    breaking your focus.
+                                </p>
+
+                                <button
+                                    class="w-full py-2.5 px-space-md rounded-DEFAULT bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-md text-label-md flex items-center justify-center gap-2 transition-colors"
+                                    id="drawer-request-notif-btn" type="button">
+                                    <span class="material-symbols-outlined text-[18px]">notifications</span>
+                                    <span id="drawer-notif-btn-label"
+                                        data-i18n="settings.notifications.requestPermission">Request permission</span>
+                                </button>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div
+                        class="p-space-lg bg-surface-container-low sticky bottom-0 flex items-center gap-space-sm shadow-md">
+                        <button
+                            class="flex-1 py-3 px-space-md rounded-DEFAULT bg-primary hover:bg-primary-fixed-dim text-on-primary font-label-lg text-label-lg text-center transition-colors"
+                            id="btn-save-settings" type="button" data-i18n="settings.save">Save Changes</button>
+                        <button
+                            class="py-3 px-space-md rounded-DEFAULT bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-label-lg text-label-lg transition-colors"
+                            id="btn-default-settings" type="button" data-i18n="settings.default">Default</button>
+                    </div>
+
+                </aside>
+            </div>
+        </div>
+    </main>
+
+    <footer class="w-full py-space-lg bg-surface/40">
+        <div
+            class="w-full max-w-[480px] mx-auto px-margin-mobile flex items-center justify-center text-on-surface-variant font-label-sm text-label-sm">
+            <a href="https://github.com/muteksia/pomodoro" target="_blank">
+                <span>Muteksia</span>
+            </a>
+        </div>
+    </footer>
+
     <script type="module" src="src/js/app.js"></script>
 </body>
 
