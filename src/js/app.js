@@ -58,11 +58,12 @@ const assertTranslations = () => {
 };
 
 timer.setOnTick((seconds) => {
-  timerDisplay.render(seconds, store.getState().mode, store.getState().currentSession - 1);
+  timerDisplay.render(seconds, store.getState().mode, store.getState().currentSession);
 });
 
 timer.setOnComplete(() => {
   completeSession();
+  controls.updateToggleButton();
 });
 
 tablist.addEventListener('click', (event) => {

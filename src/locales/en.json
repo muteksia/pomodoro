@@ -107,6 +107,8 @@
     "behavior": {
       "title": "Behavior",
       "autoStartBreaks": "Auto-start breaks",
+      "autoStartShortBreak": "Auto-start short break",
+      "autoStartLongBreak": "Auto-start long break",
       "autoStartPomodoros": "Auto-start pomodoros",
       "longBreakInterval": "Long break interval",
       "sessionsBeforeLongBreak": "Sessions before long break"

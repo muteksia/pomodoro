@@ -20,14 +20,10 @@ export const setMode = (newMode) => {
 export const completeSession = () => {
     const s = store.getState();
     if (s.mode === 'pomodoro') {
-        if (s.currentSession >= s.longBreakInterval) {
-            store.setState({ currentSession: 1 });
-            setMode('long');
-        } else {
-            store.setState({ currentSession: s.currentSession + 1 });
-            setMode('short');
-        }
+        setMode(s.currentSession >= s.longBreakInterval ? 'long' : 'short');
     } else {
+        const nextSession = s.mode === 'long' ? 1 : s.currentSession + 1;
+        store.setState({ currentSession: nextSession });
         setMode('pomodoro');
     }
 };
@@ -35,4 +31,3 @@ export const completeSession = () => {
 export const skipSession = () => {
     completeSession();
 };
-

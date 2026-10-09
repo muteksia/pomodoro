@@ -54,17 +54,20 @@ const renderSessionDots = (currentSession, total) => {
         dot.title = i18n.t(`timer.sessionDots.${state}`);
         sessionDotsWrapper.appendChild(dot);
     }
-    sessionCountText.textContent = i18n.t('timer.sessionCount', {
-        current: currentSession,
-        total
-    });
 };
 
 const render = (seconds, mode, currentSession) => {
+    const total = store.getState().longBreakInterval;
+    const displaySession = mode === 'short' ? Math.max(1, currentSession - 1) : currentSession;
+    const dotsValue = mode === 'long' ? total + 1 : displaySession;
     renderTimer(seconds);
     renderProgress(seconds, getModeDuration(mode));
     renderPhaseLabel(mode);
-    renderSessionDots(currentSession, store.getState().longBreakInterval);
+    renderSessionDots(dotsValue, total);
+    sessionCountText.textContent = i18n.t('timer.sessionCount', {
+        current: displaySession,
+        total
+    });
 };
 
 const init = () => {
