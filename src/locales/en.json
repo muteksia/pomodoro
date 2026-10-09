@@ -117,7 +117,10 @@
       "title": "Notifications",
       "browserNotifications": "Browser Notifications",
       "permissionStatus": "Permission status",
-      "requestPermission": "Request permission"
+      "requestPermission": "Request permission",
+      "granted": "Notifications Enabled",
+      "description": "Browser notifications remind you of session changes on time without breaking your focus.",
+      "unsupported": "Notifications Not Supported"
     },
     "appearance": {
       "title": "Appearance",

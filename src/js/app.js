@@ -8,6 +8,8 @@ import * as durationSettings from './components/durationSettings.js';
 import * as autoStartSettings from './components/autoStartSettings.js';
 import * as intervalSettings from './components/intervalSettings.js';
 import { completeSession } from './components/sessionCycle.js';
+import { playFinish } from './utils/sound.js';
+import * as notifications from './components/notifications.js';
 import store from './store.js';
 import './utils/shortcuts.js';
 
@@ -62,8 +64,16 @@ timer.setOnTick((seconds) => {
 });
 
 timer.setOnComplete(() => {
+  const prevMode = store.getState().mode;
   completeSession();
+  playFinish();
+  if (Notification.permission === 'granted') {
+    const title = 'Session complete';
+    const body = prevMode === 'pomodoro' ? 'Break started' : 'Focus started';
+    new Notification(title, { body });
+  }
   controls.updateToggleButton();
+  notifications.syncStatus();
 });
 
 tablist.addEventListener('click', (event) => {
@@ -84,6 +94,8 @@ i18n.init().then(() => {
   timerDisplay.init();
   controls.init();
   initSettings();
+  notifications.init();
 });
+
 
 

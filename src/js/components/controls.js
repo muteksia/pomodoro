@@ -15,11 +15,14 @@ const updateToggleButton = () => {
     toggleLabel.textContent = isRunning ? 'Pause' : 'Start';
 };
 
+import { playTick } from '../utils/sound.js';
+
 const toggleTimer = () => {
     if (timer.getIsRunning()) {
         timer.pause();
     } else {
         timer.start();
+        playTick();
     }
     updateToggleButton();
 };
