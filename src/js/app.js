@@ -2,9 +2,9 @@ import { i18n } from './i18n/i18n.js';
 import { modeTabs } from './components/modeTabs.js';
 import { timer } from './utils/timer.js';
 import { timerDisplay } from './components/timerDisplay.js';
+import { controls } from './components/controls.js';
+import './utils/shortcuts.js';
 
-const btnToggle = document.getElementById('btn-toggle');
-const btnReset = document.getElementById('btn-reset');
 const tablist = document.querySelector('[role="tablist"]');
 
 let currentMode = 'pomodoro';
@@ -37,24 +37,14 @@ tablist.addEventListener('click', (event) => {
   if (!tab || !tab.dataset.mode || tab.dataset.mode === currentMode) return;
   currentMode = tab.dataset.mode;
   timer.reset(timerDisplay.getModeDuration(currentMode));
-});
-
-btnToggle.addEventListener('click', () => {
-  if (timer.getIsRunning()) {
-    timer.pause();
-  } else {
-    timer.start();
-  }
-});
-
-btnReset.addEventListener('click', () => {
-  timer.reset(timerDisplay.getModeDuration(currentMode));
+  controls.updateToggleButton();
 });
 
 i18n.init().then(() => {
   assertTranslations();
   modeTabs.init();
   timerDisplay.init();
+  controls.init();
 });
 
 

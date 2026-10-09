@@ -1,0 +1,43 @@
+import { timer } from '../utils/timer.js';
+import { timerDisplay } from './timerDisplay.js';
+import { modeTabs } from './modeTabs.js';
+
+const btnToggle = document.getElementById('btn-toggle');
+const btnReset = document.getElementById('btn-reset');
+const btnSkip = document.getElementById('btn-skip');
+const toggleIcon = document.getElementById('btn-toggle-icon');
+const toggleLabel = document.getElementById('btn-toggle-label');
+
+const updateToggleButton = () => {
+    const isRunning = timer.getIsRunning();
+    toggleIcon.textContent = isRunning ? 'pause' : 'play_arrow';
+    toggleLabel.textContent = isRunning ? 'Pause' : 'Start';
+};
+
+const toggleTimer = () => {
+    if (timer.getIsRunning()) {
+        timer.pause();
+    } else {
+        timer.start();
+    }
+    updateToggleButton();
+};
+
+const resetTimer = () => {
+    timer.reset(timerDisplay.getModeDuration(modeTabs.getCurrentMode()));
+    updateToggleButton();
+};
+
+const skipPhase = () => {
+    timer.reset(timerDisplay.getModeDuration(modeTabs.getCurrentMode()));
+    updateToggleButton();
+};
+
+const init = () => {
+    btnToggle.addEventListener('click', toggleTimer);
+    btnReset.addEventListener('click', resetTimer);
+    btnSkip.addEventListener('click', skipPhase);
+    updateToggleButton();
+};
+
+export const controls = { init, toggleTimer, resetTimer, skipPhase, updateToggleButton };
