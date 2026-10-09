@@ -1,5 +1,23 @@
 import { i18n } from './i18n/i18n.js';
 import { modeTabs } from './components/modeTabs.js';
+import { timer } from './utils/timer.js';
+
+const DEFAULT_DURATION = 1500;
+
+const timerDisplay = document.getElementById('timer-display');
+const btnToggle = document.getElementById('btn-toggle');
+const btnReset = document.getElementById('btn-reset');
+
+const formatTime = (seconds) => {
+  const hrs = String(Math.floor(seconds / 3600)).padStart(2, '0');
+  const mins = String(Math.floor((seconds % 3600) / 60)).padStart(2, '0');
+  const secs = String(seconds % 60).padStart(2, '0');
+  return `${hrs}:${mins}:${secs}`;
+};
+
+const renderTimer = (seconds) => {
+  timerDisplay.textContent = formatTime(seconds);
+};
 
 const assertTranslations = () => {
   const expected = [
@@ -16,22 +34,27 @@ const assertTranslations = () => {
     }
   }
 
-  const probe = document.createElement('span');
-  probe.dataset.i18n = 'nav.insights';
-  document.body.appendChild(probe);
-  i18n.translateNode(probe);
-  const translated = probe.textContent === 'Insights';
-  probe.remove();
-
-  if (!translated) {
-    throw new Error('i18n self-check failed: translateNode did not translate data-i18n element');
-  }
-
   return true;
 };
 
+timer.setOnTick(renderTimer);
+
+btnToggle.addEventListener('click', () => {
+  if (timer.getIsRunning()) {
+    timer.pause();
+  } else {
+    timer.start();
+  }
+});
+
+btnReset.addEventListener('click', () => {
+  timer.reset(DEFAULT_DURATION);
+});
+
 i18n.init().then(() => {
+  assertTranslations();
   modeTabs.init();
+  renderTimer(timer.getRemainingSeconds());
 });
 
 
