@@ -95,6 +95,8 @@
       "error": "Error",
       "durationError": "Duration must be greater than 0"
     },
+    "save": "Save Changes",
+    "default": "Default",
     "audio": {
       "title": "Audio",
       "soundEffects": "Sound Effects",

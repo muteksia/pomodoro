@@ -1,6 +1,7 @@
 import { i18n } from '../i18n/i18n.js';
 import { modeTabs } from './modeTabs.js';
 import { timer } from '../utils/timer.js';
+import { toSeconds, formatTime } from '../utils/time.js';
 
 const timerDisplayEl = document.getElementById('timer-display');
 const progressBar = document.getElementById('session-progress-bar');
@@ -9,7 +10,7 @@ const sessionDotsWrapper = document.getElementById('session-dots-wrapper');
 const sessionCountText = document.getElementById('session-count-text');
 
 const SESSIONS_PER_CYCLE = 4;
-const MODE_DURATIONS = { pomodoro: 1500, short: 300, long: 900 };
+let MODE_DURATIONS = { pomodoro: 1500, short: 300, long: 900 };
 const PHASE_LABEL_KEYS = {
     pomodoro: 'timer.phaseLabel.pomodoro',
     short: 'timer.phaseLabel.shortBreak',
@@ -21,11 +22,12 @@ const DOT_CLASSES = {
     upcoming: 'bg-surface-container-highest'
 };
 
-const formatTime = (seconds) => {
-    const hrs = String(Math.floor(seconds / 3600)).padStart(2, '0');
-    const mins = String(Math.floor((seconds % 3600) / 60)).padStart(2, '0');
-    const secs = String(seconds % 60).padStart(2, '0');
-    return `${hrs}:${mins}:${secs}`;
+const setDurations = (durations) => {
+    MODE_DURATIONS = {
+        pomodoro: toSeconds(durations.pomodoro.hours, durations.pomodoro.minutes, durations.pomodoro.seconds),
+        short: toSeconds(durations.short.hours, durations.short.minutes, durations.short.seconds),
+        long: toSeconds(durations.long.hours, durations.long.minutes, durations.long.seconds)
+    };
 };
 
 const getModeDuration = (mode) => MODE_DURATIONS[mode] ?? MODE_DURATIONS.pomodoro;
@@ -76,5 +78,6 @@ export const timerDisplay = {
     renderProgress,
     renderPhaseLabel,
     renderSessionDots,
-    getModeDuration
+    getModeDuration,
+    setDurations
 };
