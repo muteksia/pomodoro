@@ -11,12 +11,19 @@ import { completeSession } from './components/sessionCycle.js';
 import { playFinish } from './utils/sound.js';
 import * as notifications from './components/notifications.js';
 import store from './store.js';
+import { splitSeconds } from './utils/time.js';
 import './utils/shortcuts.js';
 
 const tablist = document.querySelector('[role="tablist"]');
 
 const initSettings = () => {
   initSettingsDrawer();
+  const { durations } = store.getState();
+  durationSettings.loadToInputs({
+    pomodoro: splitSeconds(durations.pomodoro),
+    short: splitSeconds(durations.short),
+    long: splitSeconds(durations.long)
+  });
   autoStartSettings.render();
   intervalSettings.render();
 
@@ -90,6 +97,7 @@ tablist.addEventListener('click', (event) => {
 
 i18n.init().then(() => {
   assertTranslations();
+  timer.reset(timerDisplay.getModeDuration(store.getState().mode));
   modeTabs.init();
   timerDisplay.init();
   controls.init();
