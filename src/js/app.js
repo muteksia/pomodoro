@@ -8,6 +8,7 @@ import * as durationSettings from './components/durationSettings.js';
 import * as autoStartSettings from './components/autoStartSettings.js';
 import * as intervalSettings from './components/intervalSettings.js';
 import * as languageSettings from './components/languageSettings.js';
+import * as themeSettings from './components/themeSettings.js';
 import { completeSession } from './components/sessionCycle.js';
 import { playFinish } from './utils/sound.js';
 import * as notifications from './components/notifications.js';
@@ -28,6 +29,7 @@ const initSettings = () => {
   autoStartSettings.render();
   intervalSettings.render();
   languageSettings.init();
+  themeSettings.init();
 
   const saveSettings = () => {
     if (durationSettings.validate()) {
@@ -47,6 +49,7 @@ const initSettings = () => {
     autoStartSettings.resetDefaults();
     intervalSettings.resetDefaults();
     languageSettings.resetDefaults();
+    themeSettings.resetDefaults();
     saveSettings();
   });
 };

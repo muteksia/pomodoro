@@ -2,6 +2,12 @@
   "app": {
     "title": "Pomodoro"
   },
+  "header": {
+    "themeToggle": {
+      "ariaLabel": "Ganti tema terang atau gelap",
+      "title": "Ganti tema"
+    }
+  },
   "tabs": {
     "pomodoro": "Pomodoro",
     "shortBreak": "Istirahat Pendek",

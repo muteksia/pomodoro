@@ -3,86 +3,85 @@
 /* Light theme (default, applied via :root) */
 :root {
     /* Color tokens - RGB channel format (no commas) for rgb(var(--x) / <alpha>) */
-    /* Source: Material-3 light teal scheme, seed 200 */
+    /* Source: Material-3 light teal scheme */
 
-    /* Background & Surface */
-    --background: 246 250 249;
-    --surface: 246 250 249;
-    --surface-bright: 212 217 215;
-    --surface-dim: 239 243 240;
-    --surface-container-low: 241 245 243;
-    --surface-container-lowest: 250 252 251;
-    --surface-container: 243 247 245;
-    --surface-container-high: 235 239 237;
-    --surface-container-highest: 227 231 229;
+    /* Background & Surface - stepped so cards stand out from page */
+    --background: 245 251 249;
+    --surface: 245 251 249;
+    --surface-bright: 245 251 249;
+    --surface-dim: 216 227 224;
+    --surface-container-lowest: 255 255 255;
+    --surface-container-low: 239 245 242;
+    --surface-container: 233 239 236;
+    --surface-container-high: 227 234 230;
+    --surface-container-highest: 221 228 224;
 
     /* Surface Variants */
-    --surface-variant: 232 237 235;
-    --surface-variant-low: 245 249 247;
-    --surface-variant-high: 222 227 225;
+    --surface-variant: 218 228 224;
+    --surface-variant-low: 233 239 236;
+    --surface-variant-high: 208 218 214;
 
-    /* Primary (Teal) */
-    --primary: 0 106 95;
-    --primary-fixed: 113 248 228;
-    --primary-fixed-dim: 179 243 235;
-    --on-primary: 0 55 49;
-    --on-primary-fixed-variant: 0 80 72;
-    --primary-dim: 0 95 86;
-    --primary-dark: 0 80 72;
-    --primary-deep: 0 65 57;
-    --primary-container: 0 184 166;
-    --on-primary-container: 0 65 59;
+    /* Primary (Teal - soft light green) */
+    --primary: 0 160 130;
+    --primary-fixed: 151 242 222;
+    --primary-fixed-dim: 0 120 100;
+    --on-primary: 255 255 255;
+    --on-primary-fixed: 0 32 27;
+    --on-primary-fixed-variant: 0 70 60;
+    --primary-dim: 0 140 115;
+    --primary-dark: 0 120 100;
+    --primary-deep: 0 100 85;
+    --primary-container: 151 242 222;
+    --on-primary-container: 0 70 60;
 
-    /* Secondary (Teal-green) */
-    --secondary: 107 248 199;
-    --secondary-fixed: 137 245 231;
-    --secondary-fixed-dim: 189 243 235;
-    --on-secondary: 0 55 52;
-    --on-secondary-fixed: 0 30 37;
-    --on-secondary-fixed-variant: 0 80 69;
-    --secondary-dim: 102 238 207;
-    --secondary-dark: 87 224 187;
-    --secondary-deep: 62 186 155;
-    --secondary-container: 29 161 149;
-    --on-secondary-container: 0 48 43;
+    /* Secondary (muted teal-gray, readable on light) */
+    --secondary: 70 97 92;
+    --secondary-fixed: 202 230 224;
+    --secondary-fixed-dim: 186 214 208;
+    --on-secondary: 255 255 255;
+    --on-secondary-fixed: 27 52 48;
+    --on-secondary-fixed-variant: 46 74 70;
+    --secondary-dim: 84 112 107;
+    --secondary-dark: 98 126 121;
+    --secondary-deep: 112 140 135;
+    --secondary-container: 202 230 224;
+    --on-secondary-container: 27 52 48;
 
-    /* Tertiary (Pink/Red) */
-    --tertiary: 251 179 160;
-    --tertiary-fixed: 255 218 216;
-    --tertiary-fixed-dim: 255 187 181;
-    --on-tertiary: 103 15 21;
-    --on-tertiary-fixed: 68 0 6;
-    --on-tertiary-fixed-variant: 88 29 36;
-    --tertiary-dim: 250 158 137;
-    --tertiary-dark: 239 132 115;
-    --tertiary-deep: 220 99 71;
-    --tertiary-container: 183 71 63;
-    --on-tertiary-container: 76 15 19;
+    /* Tertiary (brick, darkened for light bg) */
+    --tertiary: 143 76 62;
+    --tertiary-fixed: 255 218 211;
+    --tertiary-fixed-dim: 240 188 180;
+    --on-tertiary: 255 255 255;
+    --on-tertiary-fixed: 62 20 9;
+    --on-tertiary-fixed-variant: 115 52 42;
+    --tertiary-dim: 160 92 77;
+    --tertiary-dark: 178 110 94;
+    --tertiary-deep: 196 130 113;
+    --tertiary-container: 255 218 211;
+    --on-tertiary-container: 62 20 9;
 
-    /* Error */
+    /* Error (M3 light) */
     --error: 186 26 26;
-    --error-container: 243 0 31;
-    --on-error: 105 0 0;
-    --on-error-container: 255 218 216;
+    --error-container: 255 218 214;
+    --on-error: 255 255 255;
+    --on-error-container: 65 0 2;
 
     /* Outline & Inverse */
-    --outline: 133 148 144;
-    --outline-variant: 60 73 71;
-    --inverse-primary: 0 107 95;
-    --inverse-on-surface: 44 49 52;
+    --outline: 111 121 118;
+    --outline-variant: 195 207 203;
+    --inverse-primary: 111 219 199;
+    --inverse-on-surface: 236 242 239;
 
     /* On Surface & Surface Overlays */
-    --on-surface: 22 29 28;
-    --on-surface-variant: 187 202 198;
-    --inverse-surface: 220 227 225;
-    --inverse-surface-shadow: 243 245 244;
+    --on-surface: 23 29 27;
+    --on-surface-variant: 63 73 70;
+    --inverse-surface: 45 52 50;
+    --inverse-surface-shadow: 45 52 50;
+    --on-background: 23 29 27;
 
-    /* Background (for body) */
-    --background: 246 250 249;
-    --on-background: 22 29 28;
-
-    /* Tint */
-    --surface-tint: 79 219 208;
+    /* Tint & glow - soft light green */
+    --surface-tint: 0 160 130;
+    --primary-glow: 0 160 130;
 
     /* Scrim & Shadow */
     --scrim: 0 0 0 / 0.4;
@@ -185,12 +184,12 @@
 
 /* Start button glow - uses CSS var */
 .btn-start-glow {
-    box-shadow: 0 4px 20px rgb(var(--color-primary-glow) / 0.25);
+    box-shadow: 0 4px 20px rgb(var(--primary-glow) / 0.25);
 }
 
 /* Active session dot - apply theme-aware primary color */
 .dot-active.bg-primary {
-    background-color: rgb(var(--color-primary) / 1);
+    background-color: rgb(var(--primary) / 1);
     /* Glow via CSS var */
-    box-shadow: 0 0 8px rgb(var(--color-primary-glow) / 0.8);
+    box-shadow: 0 0 8px rgb(var(--primary-glow) / 0.8);
 }

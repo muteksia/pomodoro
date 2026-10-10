@@ -1,10 +1,19 @@
 <!DOCTYPE html>
-<html lang="en" class="dark loading">
+<html lang="en" class="loading">
 
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <meta content="web_standard" name="shell-type" />
+    <script>
+        (function () {
+            try {
+                var s = JSON.parse(localStorage.getItem('pomodoro-settings') || '{}');
+                var t = s.theme === 'light' ? 'light' : 'dark';
+                document.documentElement.classList.add(t);
+            } catch (_) { document.documentElement.classList.add('dark'); }
+        })();
+    </script>
 
     <title data-i18n="app.title">Pomodoro</title>
 
@@ -23,53 +32,53 @@
             theme: {
                 extend: {
                     "colors": {
-                        "on-tertiary-fixed-variant": "#881d24",
-                        "primary-fixed-dim": "#4fdbc8",
-                        "tertiary": "#ffb3b0",
-                        "on-secondary-container": "#00302b",
-                        "primary": "#4fdbc8",
-                        "on-primary": "#003731",
-                        "on-error": "#690005",
-                        "on-tertiary-fixed": "#410006",
-                        "tertiary-fixed": "#ffdad8",
-                        "on-secondary-fixed": "#00201d",
-                        "surface-container-highest": "#30353d",
-                        "on-surface": "#dee3ec",
-                        "on-surface-variant": "#bbcac6",
-                        "surface-container-high": "#252a32",
-                        "inverse-surface": "#dee3ec",
-                        "primary-fixed": "#71f8e4",
-                        "on-secondary-fixed-variant": "#005049",
-                        "error-container": "#93000a",
-                        "outline-variant": "#3c4947",
-                        "surface-variant": "#30353d",
-                        "surface": "#0e141a",
-                        "inverse-primary": "#006b5f",
-                        "error": "#ffb4ab",
-                        "on-tertiary": "#670211",
-                        "secondary-fixed": "#89f5e7",
-                        "primary-container": "#14b8a6",
-                        "surface-dim": "#0e141a",
-                        "tertiary-fixed-dim": "#ffb3b0",
-                        "surface-container-lowest": "#090f15",
-                        "surface-container-low": "#171c23",
-                        "on-secondary": "#003732",
-                        "surface-tint": "#4fdbc8",
-                        "on-tertiary-container": "#760f19",
-                        "tertiary-container": "#ff7c7b",
-                        "secondary-fixed-dim": "#6bd8cb",
-                        "on-primary-fixed": "#00201c",
-                        "on-error-container": "#ffdad6",
-                        "on-primary-fixed-variant": "#005048",
-                        "secondary": "#6bd8cb",
-                        "surface-container": "#1b2027",
-                        "outline": "#859490",
-                        "inverse-on-surface": "#2c3138",
-                        "on-primary-container": "#00423b",
-                        "background": "#0e141a",
-                        "on-background": "#dee3ec",
-                        "secondary-container": "#29a195",
-                        "surface-bright": "#343a41"
+                        "on-tertiary-fixed-variant": "rgb(var(--on-tertiary-fixed-variant) / <alpha-value>)",
+                        "primary-fixed-dim": "rgb(var(--primary-fixed-dim) / <alpha-value>)",
+                        "tertiary": "rgb(var(--tertiary) / <alpha-value>)",
+                        "on-secondary-container": "rgb(var(--on-secondary-container) / <alpha-value>)",
+                        "primary": "rgb(var(--primary) / <alpha-value>)",
+                        "on-primary": "rgb(var(--on-primary) / <alpha-value>)",
+                        "on-error": "rgb(var(--on-error) / <alpha-value>)",
+                        "on-tertiary-fixed": "rgb(var(--on-tertiary-fixed) / <alpha-value>)",
+                        "tertiary-fixed": "rgb(var(--tertiary-fixed) / <alpha-value>)",
+                        "on-secondary-fixed": "rgb(var(--on-secondary-fixed) / <alpha-value>)",
+                        "surface-container-highest": "rgb(var(--surface-container-highest) / <alpha-value>)",
+                        "on-surface": "rgb(var(--on-surface) / <alpha-value>)",
+                        "on-surface-variant": "rgb(var(--on-surface-variant) / <alpha-value>)",
+                        "surface-container-high": "rgb(var(--surface-container-high) / <alpha-value>)",
+                        "inverse-surface": "rgb(var(--inverse-surface) / <alpha-value>)",
+                        "primary-fixed": "rgb(var(--primary-fixed) / <alpha-value>)",
+                        "on-secondary-fixed-variant": "rgb(var(--on-secondary-fixed-variant) / <alpha-value>)",
+                        "error-container": "rgb(var(--error-container) / <alpha-value>)",
+                        "outline-variant": "rgb(var(--outline-variant) / <alpha-value>)",
+                        "surface-variant": "rgb(var(--surface-variant) / <alpha-value>)",
+                        "surface": "rgb(var(--surface) / <alpha-value>)",
+                        "inverse-primary": "rgb(var(--inverse-primary) / <alpha-value>)",
+                        "error": "rgb(var(--error) / <alpha-value>)",
+                        "on-tertiary": "rgb(var(--on-tertiary) / <alpha-value>)",
+                        "secondary-fixed": "rgb(var(--secondary-fixed) / <alpha-value>)",
+                        "primary-container": "rgb(var(--primary-container) / <alpha-value>)",
+                        "surface-dim": "rgb(var(--surface-dim) / <alpha-value>)",
+                        "tertiary-fixed-dim": "rgb(var(--tertiary-fixed-dim) / <alpha-value>)",
+                        "surface-container-lowest": "rgb(var(--surface-container-lowest) / <alpha-value>)",
+                        "surface-container-low": "rgb(var(--surface-container-low) / <alpha-value>)",
+                        "on-secondary": "rgb(var(--on-secondary) / <alpha-value>)",
+                        "surface-tint": "rgb(var(--surface-tint) / <alpha-value>)",
+                        "on-tertiary-container": "rgb(var(--on-tertiary-container) / <alpha-value>)",
+                        "tertiary-container": "rgb(var(--tertiary-container) / <alpha-value>)",
+                        "secondary-fixed-dim": "rgb(var(--secondary-fixed-dim) / <alpha-value>)",
+                        "on-primary-fixed": "rgb(var(--on-primary-fixed) / <alpha-value>)",
+                        "on-error-container": "rgb(var(--on-error-container) / <alpha-value>)",
+                        "on-primary-fixed-variant": "rgb(var(--on-primary-fixed-variant) / <alpha-value>)",
+                        "secondary": "rgb(var(--secondary) / <alpha-value>)",
+                        "surface-container": "rgb(var(--surface-container) / <alpha-value>)",
+                        "outline": "rgb(var(--outline) / <alpha-value>)",
+                        "inverse-on-surface": "rgb(var(--inverse-on-surface) / <alpha-value>)",
+                        "on-primary-container": "rgb(var(--on-primary-container) / <alpha-value>)",
+                        "background": "rgb(var(--background) / <alpha-value>)",
+                        "on-background": "rgb(var(--on-background) / <alpha-value>)",
+                        "secondary-container": "rgb(var(--secondary-container) / <alpha-value>)",
+                        "surface-bright": "rgb(var(--surface-bright) / <alpha-value>)"
                     },
                     "borderRadius": {
                         "DEFAULT": "1rem",
@@ -157,12 +166,18 @@
     class="bg-surface font-body-md text-on-surface min-h-screen flex flex-col justify-between selection:bg-primary selection:text-on-primary">
 
     <header class="w-full fixed top-0 left-0 right-0 z-40 flex items-center justify-end px-6 md:px-12 py-4 pointer-events-none">
-        <div class="pointer-events-auto">
+        <div class="pointer-events-auto flex items-center">
             <select aria-label="Select language" id="select-language"
                 class="bg-surface-container-low hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface rounded-full pl-3 pr-2 py-1.5 font-label-md text-label-md outline-none border border-outline-variant/30 cursor-pointer transition-colors shadow-sm">
                 <option value="en">English</option>
                 <option value="id">Bahasa Indonesia</option>
             </select>
+            <button id="theme-toggle" type="button"
+                class="ml-2 w-9 h-9 rounded-full flex items-center justify-center bg-surface-container-low hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface border border-outline-variant/30 transition-colors shadow-sm"
+                aria-label="Toggle light or dark theme" data-i18n-attr="aria-label:header.themeToggle.ariaLabel;title:header.themeToggle.title"
+                title="Toggle theme">
+                <span id="theme-toggle-icon" class="material-symbols-outlined text-[20px]">dark_mode</span>
+            </button>
         </div>
     </header>
 
@@ -234,7 +249,7 @@
                             <span class="hidden sm:inline" data-i18n="controls.reset.label">Reset</span>
                         </button>
                         <button aria-label="Start timer"
-                            class="h-14 px-10 rounded-DEFAULT bg-primary hover:bg-primary-fixed-dim text-on-primary font-headline-md text-headline-md flex items-center justify-center gap-2 transition-all shadow-[0_4px_20px_rgba(79,219,200,0.25)] active:scale-95 group"
+                            class="h-14 px-10 rounded-DEFAULT bg-primary hover:bg-primary-fixed-dim text-on-primary font-headline-md text-headline-md flex items-center justify-center gap-2 transition-all btn-start-glow active:scale-95 group"
                             id="btn-toggle" type="button">
                             <span class="material-symbols-outlined text-[24px]" id="btn-toggle-icon"
                                 style="font-variation-settings: 'FILL' 1;">play_arrow</span>

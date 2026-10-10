@@ -8,6 +8,7 @@ const defaultState = {
     longBreakInterval: 4,
     autoStart: { pomodoro: false, short: false, long: false },
     language: 'en',
+    theme: 'dark',
     isRunning: false
 };
 
@@ -27,7 +28,8 @@ const loadFromStorage = () => {
                     ...defaultState.autoStart,
                     ...(parsed.autoStart || {})
                 },
-                language: parsed.language ?? defaultState.language
+                language: parsed.language ?? defaultState.language,
+                theme: parsed.theme ?? defaultState.theme
             };
         }
     } catch (e) {
@@ -42,7 +44,8 @@ const saveToStorage = (currentState) => {
             durations: currentState.durations,
             longBreakInterval: currentState.longBreakInterval,
             autoStart: currentState.autoStart,
-            language: currentState.language
+            language: currentState.language,
+            theme: currentState.theme
         };
         localStorage.setItem(STORAGE_KEY, JSON.stringify(toSave));
     } catch (e) {

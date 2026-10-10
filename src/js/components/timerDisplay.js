@@ -16,7 +16,7 @@ const PHASE_LABEL_KEYS = {
 };
 const DOT_CLASSES = {
     completed: 'bg-primary',
-    active: 'bg-primary shadow-[0_0_8px_rgba(79,219,200,0.8)]',
+    active: 'bg-primary dot-active',
     upcoming: 'bg-surface-container-highest'
 };
 

@@ -2,6 +2,12 @@
   "app": {
     "title": "Pomodoro"
   },
+  "header": {
+    "themeToggle": {
+      "ariaLabel": "Toggle light or dark theme",
+      "title": "Toggle theme"
+    }
+  },
   "tabs": {
     "pomodoro": "Pomodoro",
     "shortBreak": "Short Break",
