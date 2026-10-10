@@ -1,18 +1,11 @@
 {
   "app": {
-    "title": "Pomodoro",
-    "brand": "Pomodoro"
-  },
-  "nav": {
-    "timer": "Timer",
-    "insights": "Insights",
-    "settings": "Settings"
+    "title": "Pomodoro"
   },
   "tabs": {
     "pomodoro": "Pomodoro",
     "shortBreak": "Short Break",
-    "longBreak": "Long Break",
-    "ariaLabel": "Session Mode"
+    "longBreak": "Long Break"
   },
   "timer": {
     "phaseLabel": {
@@ -20,41 +13,31 @@
       "shortBreak": "Short Break",
       "longBreak": "Long Break"
     },
-    "ariaLabel": "Time remaining {minutes} minutes {seconds} seconds",
     "sessionCount": "Session {current} of {total}",
     "sessionDots": {
       "completed": "Completed",
       "active": "In progress",
-      "upcoming": "Upcoming",
-      "cycleComplete": "Cycle complete"
+      "upcoming": "Upcoming"
     }
   },
   "controls": {
     "reset": {
-      "label": "Reset",
-      "ariaLabel": "Reset current session",
-      "title": "Reset session (R)"
+      "label": "Reset"
     },
     "toggle": {
       "start": "Start",
-      "pause": "Pause",
-      "ariaLabelStart": "Start timer",
-      "ariaLabelPause": "Pause timer"
+      "pause": "Pause"
     },
     "skip": {
-      "label": "Skip",
-      "ariaLabel": "Skip to next phase",
-      "title": "Skip to next session (L)"
+      "label": "Skip"
     }
   },
   "footer": {
     "settingsButton": {
       "label": "Timer Settings",
-      "shortcut": "P",
-      "ariaLabel": "Open timer settings"
+      "shortcut": "P"
     },
     "notification": {
-      "indicator": "Notification permission",
       "statusNotActive": "Notification Permission Not Active",
       "statusActive": "Notification Permission Active",
       "enableButton": "Enable"
@@ -62,7 +45,6 @@
   },
   "settings": {
     "title": "Timer Settings",
-    "close": "Close settings panel",
     "sections": {
       "duration": "Duration (Minutes, Seconds)",
       "unitLabel": "tnum unit"
@@ -71,72 +53,26 @@
       "pomodoro": "Pomodoro",
       "shortBreak": "Short Break",
       "longBreak": "Long Break",
-      "hours": "Hours",
       "minutes": "Minutes",
-      "seconds": "Seconds",
-      "ariaLabels": {
-        "pomodoroHours": "Pomodoro hours",
-        "pomodoroMinutes": "Pomodoro minutes",
-        "pomodoroSeconds": "Pomodoro seconds",
-        "shortBreakHours": "Short break hours",
-        "shortBreakMinutes": "Short break minutes",
-        "shortBreakSeconds": "Short break seconds",
-        "longBreakHours": "Long break hours",
-        "longBreakMinutes": "Long break minutes",
-        "longBreakSeconds": "Long break seconds"
-      }
+      "seconds": "Seconds"
     },
     "validation": {
-      "error": "Error",
       "durationError": "Duration must be greater than 0"
     },
-    "save": "Save Changes",
     "default": "Default",
-    "audio": {
-      "title": "Audio",
-      "soundEffects": "Sound Effects",
-      "tickSound": "Tick Sound",
-      "completionSound": "Completion Sound",
-      "volume": "Volume"
-    },
     "behavior": {
       "title": "Behavior",
-      "autoStartBreaks": "Auto-start breaks",
+      "autoStartPomodoros": "Auto-start pomodoros",
       "autoStartShortBreak": "Auto-start short break",
       "autoStartLongBreak": "Auto-start long break",
-      "autoStartPomodoros": "Auto-start pomodoros",
       "longBreakInterval": "Long break interval",
       "sessionsBeforeLongBreak": "Sessions before long break"
     },
     "notifications": {
       "title": "Notifications",
-      "browserNotifications": "Browser Notifications",
-      "permissionStatus": "Permission status",
-      "requestPermission": "Request permission",
-      "granted": "Notifications Enabled",
       "description": "Browser notifications remind you of session changes on time without breaking your focus.",
-      "unsupported": "Notifications Not Supported"
-    },
-    "appearance": {
-      "title": "Appearance",
-      "theme": "Theme",
-      "themeLight": "Light",
-      "themeDark": "Dark",
-      "themeSystem": "System",
-      "language": "Language",
-      "languageLabel": "Select language"
-    },
-    "data": {
-      "title": "Data",
-      "exportData": "Export Data",
-      "importData": "Import Data",
-      "clearData": "Clear All Data"
-    },
-    "about": {
-      "title": "About",
-      "version": "Version",
-      "github": "GitHub",
-      "license": "License"
+      "requestPermission": "Request permission",
+      "granted": "Notifications Enabled"
     }
   }
 }

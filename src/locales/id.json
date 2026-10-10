@@ -1,18 +1,11 @@
 {
   "app": {
-    "title": "Pomodoro",
-    "brand": "Pomodoro"
-  },
-  "nav": {
-    "timer": "Timer",
-    "insights": "Wawasan",
-    "settings": "Pengaturan"
+    "title": "Pomodoro"
   },
   "tabs": {
     "pomodoro": "Pomodoro",
     "shortBreak": "Istirahat Pendek",
-    "longBreak": "Istirahat Panjang",
-    "ariaLabel": "Mode Sesi"
+    "longBreak": "Istirahat Panjang"
   },
   "timer": {
     "phaseLabel": {
@@ -20,41 +13,31 @@
       "shortBreak": "Istirahat Pendek",
       "longBreak": "Istirahat Panjang"
     },
-    "ariaLabel": "Waktu tersisa {minutes} menit {seconds} detik",
     "sessionCount": "Sesi {current} dari {total}",
     "sessionDots": {
       "completed": "Selesai",
       "active": "Sedang berjalan",
-      "upcoming": "Akan datang",
-      "cycleComplete": "Siklus selesai"
+      "upcoming": "Akan datang"
     }
   },
   "controls": {
     "reset": {
-      "label": "Reset",
-      "ariaLabel": "Reset sesi saat ini",
-      "title": "Reset sesi (R)"
+      "label": "Reset"
     },
     "toggle": {
       "start": "Mulai",
-      "pause": "Jeda",
-      "ariaLabelStart": "Mulai timer",
-      "ariaLabelPause": "Jeda timer"
+      "pause": "Jeda"
     },
     "skip": {
-      "label": "Lewati",
-      "ariaLabel": "Lewati ke fase berikutnya",
-      "title": "Lewati ke sesi berikutnya (L)"
+      "label": "Lewati"
     }
   },
   "footer": {
     "settingsButton": {
       "label": "Pengaturan Timer",
-      "shortcut": "P",
-      "ariaLabel": "Buka pengaturan timer"
+      "shortcut": "P"
     },
     "notification": {
-      "indicator": "Izin notifikasi",
       "statusNotActive": "Izin Notifikasi Tidak Aktif",
       "statusActive": "Izin Notifikasi Aktif",
       "enableButton": "Aktifkan"
@@ -62,7 +45,6 @@
   },
   "settings": {
     "title": "Pengaturan Timer",
-    "close": "Tutup panel pengaturan",
     "sections": {
       "duration": "Durasi (Menit, Detik)",
       "unitLabel": "tnum unit"
@@ -71,72 +53,26 @@
       "pomodoro": "Pomodoro",
       "shortBreak": "Istirahat Pendek",
       "longBreak": "Istirahat Panjang",
-      "hours": "Jam",
       "minutes": "Menit",
-      "seconds": "Detik",
-      "ariaLabels": {
-        "pomodoroHours": "Jam Pomodoro",
-        "pomodoroMinutes": "Menit Pomodoro",
-        "pomodoroSeconds": "Detik Pomodoro",
-        "shortBreakHours": "Jam Istirahat Pendek",
-        "shortBreakMinutes": "Menit Istirahat Pendek",
-        "shortBreakSeconds": "Detik Istirahat Pendek",
-        "longBreakHours": "Jam Istirahat Panjang",
-        "longBreakMinutes": "Menit Istirahat Panjang",
-        "longBreakSeconds": "Detik Istirahat Panjang"
-      }
+      "seconds": "Detik"
     },
     "validation": {
-      "error": "Error",
       "durationError": "Durasi harus lebih dari 0"
     },
-    "save": "Simpan Perubahan",
     "default": "Default",
-    "audio": {
-      "title": "Audio",
-      "soundEffects": "Efek Suara",
-      "tickSound": "Suara Tick",
-      "completionSound": "Suara Selesai",
-      "volume": "Volume"
-    },
     "behavior": {
       "title": "Perilaku",
-      "autoStartBreaks": "Mulai otomatis istirahat",
+      "autoStartPomodoros": "Mulai otomatis pomodoro",
       "autoStartShortBreak": "Mulai otomatis istirahat pendek",
       "autoStartLongBreak": "Mulai otomatis istirahat panjang",
-      "autoStartPomodoros": "Mulai otomatis pomodoro",
       "longBreakInterval": "Interval istirahat panjang",
       "sessionsBeforeLongBreak": "Sesi sebelum istirahat panjang"
     },
     "notifications": {
       "title": "Notifikasi",
-      "browserNotifications": "Notifikasi Browser",
-      "permissionStatus": "Status izin",
-      "requestPermission": "Minta izin",
-      "granted": "Notifikasi Diaktifkan",
       "description": "Notifikasi browser mengingatkan Anda perubahan sesi tepat waktu tanpa mengganggu fokus.",
-      "unsupported": "Notifikasi Tidak Didukung"
-    },
-    "appearance": {
-      "title": "Tampilan",
-      "theme": "Tema",
-      "themeLight": "Terang",
-      "themeDark": "Gelap",
-      "themeSystem": "Sistem",
-      "language": "Bahasa",
-      "languageLabel": "Pilih bahasa"
-    },
-    "data": {
-      "title": "Data",
-      "exportData": "Ekspor Data",
-      "importData": "Impor Data",
-      "clearData": "Hapus Semua Data"
-    },
-    "about": {
-      "title": "Tentang",
-      "version": "Versi",
-      "github": "GitHub",
-      "license": "Lisensi"
+      "requestPermission": "Minta izin",
+      "granted": "Notifikasi Diaktifkan"
     }
   }
 }

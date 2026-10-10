@@ -53,7 +53,7 @@ const initSettings = () => {
 
 const assertTranslations = () => {
   const expected = [
-    ['nav.timer', undefined, 'Timer'],
+    ['app.title', undefined, 'Pomodoro'],
     ['tabs.shortBreak', undefined, 'Short Break'],
     ['timer.sessionCount', { current: 2, total: 4 }, 'Session 2 of 4'],
     ['missing.key', undefined, 'missing.key']
