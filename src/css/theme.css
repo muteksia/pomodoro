@@ -1,0 +1,196 @@
+/* src/css/theme.css - Material-3 Theme Variables */
+
+/* Light theme (default, applied via :root) */
+:root {
+    /* Color tokens - RGB channel format (no commas) for rgb(var(--x) / <alpha>) */
+    /* Source: Material-3 light teal scheme, seed 200 */
+
+    /* Background & Surface */
+    --background: 246 250 249;
+    --surface: 246 250 249;
+    --surface-bright: 212 217 215;
+    --surface-dim: 239 243 240;
+    --surface-container-low: 241 245 243;
+    --surface-container-lowest: 250 252 251;
+    --surface-container: 243 247 245;
+    --surface-container-high: 235 239 237;
+    --surface-container-highest: 227 231 229;
+
+    /* Surface Variants */
+    --surface-variant: 232 237 235;
+    --surface-variant-low: 245 249 247;
+    --surface-variant-high: 222 227 225;
+
+    /* Primary (Teal) */
+    --primary: 0 106 95;
+    --primary-fixed: 113 248 228;
+    --primary-fixed-dim: 179 243 235;
+    --on-primary: 0 55 49;
+    --on-primary-fixed-variant: 0 80 72;
+    --primary-dim: 0 95 86;
+    --primary-dark: 0 80 72;
+    --primary-deep: 0 65 57;
+    --primary-container: 0 184 166;
+    --on-primary-container: 0 65 59;
+
+    /* Secondary (Teal-green) */
+    --secondary: 107 248 199;
+    --secondary-fixed: 137 245 231;
+    --secondary-fixed-dim: 189 243 235;
+    --on-secondary: 0 55 52;
+    --on-secondary-fixed: 0 30 37;
+    --on-secondary-fixed-variant: 0 80 69;
+    --secondary-dim: 102 238 207;
+    --secondary-dark: 87 224 187;
+    --secondary-deep: 62 186 155;
+    --secondary-container: 29 161 149;
+    --on-secondary-container: 0 48 43;
+
+    /* Tertiary (Pink/Red) */
+    --tertiary: 251 179 160;
+    --tertiary-fixed: 255 218 216;
+    --tertiary-fixed-dim: 255 187 181;
+    --on-tertiary: 103 15 21;
+    --on-tertiary-fixed: 68 0 6;
+    --on-tertiary-fixed-variant: 88 29 36;
+    --tertiary-dim: 250 158 137;
+    --tertiary-dark: 239 132 115;
+    --tertiary-deep: 220 99 71;
+    --tertiary-container: 183 71 63;
+    --on-tertiary-container: 76 15 19;
+
+    /* Error */
+    --error: 186 26 26;
+    --error-container: 243 0 31;
+    --on-error: 105 0 0;
+    --on-error-container: 255 218 216;
+
+    /* Outline & Inverse */
+    --outline: 133 148 144;
+    --outline-variant: 60 73 71;
+    --inverse-primary: 0 107 95;
+    --inverse-on-surface: 44 49 52;
+
+    /* On Surface & Surface Overlays */
+    --on-surface: 22 29 28;
+    --on-surface-variant: 187 202 198;
+    --inverse-surface: 220 227 225;
+    --inverse-surface-shadow: 243 245 244;
+
+    /* Background (for body) */
+    --background: 246 250 249;
+    --on-background: 22 29 28;
+
+    /* Tint */
+    --surface-tint: 79 219 208;
+
+    /* Scrim & Shadow */
+    --scrim: 0 0 0 / 0.4;
+}
+
+/* Dark theme (applied via .dark class on html) */
+.dark {
+    /* Background & Surface */
+    --background: 14 20 26;
+    --surface: 14 20 26;
+    --surface-bright: 35 45 43;
+    --surface-dim: 14 20 26;
+    --surface-container-low: 23 31 35;
+    --surface-container-lowest: 9 15 21;
+    --surface-container: 23 31 35;
+    --surface-container-high: 37 46 50;
+    --surface-container-highest: 30 35 37;
+
+    /* Surface Variants */
+    --surface-variant: 30 35 37;
+    --surface-variant-low: 27 31 33;
+    --surface-variant-high: 25 29 31;
+
+    /* Primary (Teal - same hue, darker for light-on-dark) */
+    --primary: 79 219 208;
+    --primary-fixed: 113 248 228;
+    --primary-fixed-dim: 179 243 235;
+    --on-primary: 0 37 35;
+    --on-primary-fixed-variant: 0 80 72;
+    --primary-dim: 70 180 161;
+    --primary-dark: 56 146 134;
+    --primary-deep: 39 116 107;
+    --primary-container: 198 240 231;
+    --on-primary-container: 0 31 29;
+
+    /* Secondary (Teal-green) */
+    --secondary: 107 248 199;
+    --secondary-fixed: 137 245 231;
+    --secondary-fixed-dim: 189 243 235;
+    --on-secondary: 0 55 52;
+    --on-secondary-fixed: 0 30 37;
+    --on-secondary-fixed-variant: 0 80 69;
+    --secondary-dim: 102 238 207;
+    --secondary-dark: 87 224 187;
+    --secondary-deep: 62 186 155;
+    --secondary-container: 29 161 149;
+    --on-secondary-container: 0 48 43;
+
+    /* Tertiary (Pink/Red) */
+    --tertiary: 251 179 160;
+    --tertiary-fixed: 255 218 216;
+    --tertiary-fixed-dim: 255 187 181;
+    --on-tertiary: 103 15 21;
+    --on-tertiary-fixed: 68 0 6;
+    --on-tertiary-fixed-variant: 88 29 36;
+    --tertiary-dim: 250 158 137;
+    --tertiary-dark: 239 132 115;
+    --tertiary-deep: 220 99 71;
+    --tertiary-container: 183 71 63;
+    --on-tertiary-container: 76 15 19;
+
+    /* Error */
+    --error: 251 180 171;
+    --error-container: 153 0 31;
+    --on-error: 105 0 0;
+    --on-error-container: 255 218 216;
+
+    /* Outline & Inverse */
+    --outline: 85 148 144;
+    --outline-variant: 30 35 37;
+    --inverse-primary: 0 107 95;
+    --inverse-on-surface: 28 31 34;
+
+    /* On Surface & Surface Overlays */
+    --on-surface: 235 239 237;
+    --on-surface-variant: 157 166 163;
+    --inverse-surface: 220 227 225;
+    --inverse-surface-shadow: 243 245 244;
+
+    /* Background (for body) */
+    --background: 14 20 26;
+    --on-background: 235 239 237;
+
+    /* Tint */
+    --surface-tint: 79 219 208;
+
+    /* Scrim & Shadow */
+    --scrim: 0 0 0 / 0.5;
+}
+
+/* Helper classes */
+
+/* Session dot active - uses CSS var for theme-aware glow */
+.dot-active {
+    /* Will be overridden by theme via CSS var in JS/class logic */
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 9999px;
+}
+
+/* Start button glow - uses CSS var */
+.btn-start-glow {
+    box-shadow: 0 4px 20px rgb(var(--color-primary-glow) / 0.25);
+}
+
+/* Active session dot - apply theme-aware primary color */
+.dot-active.bg-primary {
+    background-color: rgb(var(--color-primary) / 1);
+    /* Glow via CSS var */
+    box-shadow: 0 0 8px rgb(var(--color-primary-glow) / 0.8);
+}
