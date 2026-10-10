@@ -12,11 +12,17 @@ export const timer = (() => {
     const start = () => {
         if (isRunning || remainingSeconds <= 0) return;
         isRunning = true;
+        let lastTime = Date.now();
         intervalId = setInterval(() => {
-            remainingSeconds -= 1;
-            notify();
-            if (remainingSeconds <= 0) { pause(); complete(); }
-        }, 1000);
+            const now = Date.now();
+            const delta = Math.floor((now - lastTime) / 1000);
+            if (delta >= 1) {
+                remainingSeconds -= delta;
+                lastTime = now;
+                notify();
+                if (remainingSeconds <= 0) { pause(); complete(); }
+            }
+        }, 500);
     };
 
     const pause = () => {
