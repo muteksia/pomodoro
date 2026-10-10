@@ -4,6 +4,8 @@ A simple, lightweight Pomodoro timer built with vanilla JavaScript. It helps you
 
 ## Features
 - Adjustable work and break durations
+- Multi-language support (English & Bahasa Indonesia)
+- Persistent settings via LocalStorage
 - Auto‑start next session option
 - Keyboard shortcuts for quick control
 - Sound notifications
