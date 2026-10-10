@@ -1,3 +1,4 @@
+import { i18n } from '../i18n/i18n.js';
 import { timer } from '../utils/timer.js';
 import { timerDisplay } from './timerDisplay.js';
 import store from '../store.js';
@@ -12,7 +13,7 @@ const toggleLabel = document.getElementById('btn-toggle-label');
 const updateToggleButton = () => {
     const isRunning = timer.getIsRunning();
     toggleIcon.textContent = isRunning ? 'pause' : 'play_arrow';
-    toggleLabel.textContent = isRunning ? 'Pause' : 'Start';
+    toggleLabel.textContent = i18n.t(isRunning ? 'controls.toggle.pause' : 'controls.toggle.start');
 };
 
 import { playTick } from '../utils/sound.js';

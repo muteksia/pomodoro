@@ -156,6 +156,16 @@
 <body
     class="bg-surface font-body-md text-on-surface min-h-screen flex flex-col justify-between selection:bg-primary selection:text-on-primary">
 
+    <header class="w-full fixed top-0 left-0 right-0 z-40 flex items-center justify-end px-6 md:px-12 py-4 pointer-events-none">
+        <div class="pointer-events-auto">
+            <select aria-label="Select language" id="select-language"
+                class="bg-surface-container-low hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface rounded-full pl-3 pr-2 py-1.5 font-label-md text-label-md outline-none border border-outline-variant/30 cursor-pointer transition-colors shadow-sm">
+                <option value="en">English</option>
+                <option value="id">Bahasa Indonesia</option>
+            </select>
+        </div>
+    </header>
+
     <main class="w-full pt-16 flex-1 flex flex-col items-center justify-center px-margin-mobile md:px-margin">
         <div class="w-full max-w-[480px] mx-auto py-space-xl">
             <div class="flex flex-col w-full relative">
@@ -203,8 +213,7 @@
                         </div>
                         <div
                             class="flex items-center gap-space-md bg-surface-container-low px-space-md py-1.5 rounded-full">
-                            <span class="font-label-md text-label-md text-on-surface-variant" id="session-count-text"
-                                data-i18n="timer.sessionCount" data-i18n-attr="data-i18n:timer.sessionCount">Session 2
+                            <span class="font-label-md text-label-md text-on-surface-variant" id="session-count-text">Session 2
                                 of 4</span>
                             <div aria-label="Session cycle progress" class="flex items-center gap-1.5"
                                 id="session-dots-wrapper">
@@ -229,7 +238,7 @@
                             id="btn-toggle" type="button">
                             <span class="material-symbols-outlined text-[24px]" id="btn-toggle-icon"
                                 style="font-variation-settings: 'FILL' 1;">play_arrow</span>
-                            <span id="btn-toggle-label" data-i18n="controls.toggle.start">Start</span>
+                            <span id="btn-toggle-label">Start</span>
                         </button>
                         <button aria-label="Skip to next phase"
                             class="h-12 px-space-md rounded-DEFAULT bg-surface-container-low hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-all flex items-center justify-center gap-1.5 font-label-md text-label-md active:scale-95"
@@ -252,7 +261,7 @@
                             title="Click the settings button to allow browser alerts">
                             <span class="w-1.5 h-1.5 rounded-full bg-surface-container-highest"
                                 id="notif-indicator"></span>
-                            <span id="notif-status-badge" data-i18n="footer.notification.statusNotActive">Notification
+                            <span id="notif-status-badge">Notification
                                 Permission Not Active</span>
                             <button class="text-primary hover:underline ml-0.5" id="quick-enable-notif" type="button"
                                 data-i18n="footer.notification.enableButton">Enable</button>
@@ -463,10 +472,7 @@
                     <div
                         class="p-space-lg bg-surface-container-low sticky bottom-0 flex items-center gap-space-sm shadow-md">
                         <button
-                            class="flex-1 py-3 px-space-md rounded-DEFAULT bg-primary hover:bg-primary-fixed-dim text-on-primary font-label-lg text-label-lg text-center transition-colors"
-                            id="btn-save-settings" type="button" data-i18n="settings.save">Save Changes</button>
-                        <button
-                            class="py-3 px-space-md rounded-DEFAULT bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-label-lg text-label-lg transition-colors"
+                            class="w-full py-3 px-space-md rounded-DEFAULT bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-label-lg text-label-lg transition-colors"
                             id="btn-default-settings" type="button" data-i18n="settings.default">Default</button>
                     </div>
 

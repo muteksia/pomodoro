@@ -1,3 +1,5 @@
+import { i18n } from '../i18n/i18n.js';
+
 export const requestPermission = async () => {
     if (!('Notification' in window)) return false;
     const perm = await Notification.requestPermission();
@@ -15,24 +17,24 @@ export const syncStatus = () => {
             indicator.classList.remove('bg-surface-container-highest');
             indicator.classList.add('bg-primary');
         }
-        if (badge) badge.textContent = 'Notification Permission Active';
+        if (badge) badge.textContent = i18n.t('footer.notification.statusActive');
         if (quickBtn) quickBtn.style.display = 'none';
         if (drawerBtn) {
             drawerBtn.disabled = true;
             const span = drawerBtn.querySelector('span');
-            if (span) span.textContent = 'Notifications Enabled';
+            if (span) span.textContent = i18n.t('settings.notifications.granted');
         }
     } else {
         if (indicator) {
             indicator.classList.remove('bg-primary');
             indicator.classList.add('bg-surface-container-highest');
         }
-        if (badge) badge.textContent = 'Notification Permission Not Active';
+        if (badge) badge.textContent = i18n.t('footer.notification.statusNotActive');
         if (quickBtn) quickBtn.style.display = 'inline';
         if (drawerBtn) {
             drawerBtn.disabled = false;
             const span = drawerBtn.querySelector('span');
-            if (span) span.textContent = 'Request permission';
+            if (span) span.textContent = i18n.t('settings.notifications.requestPermission');
         }
     }
 };

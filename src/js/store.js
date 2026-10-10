@@ -7,6 +7,7 @@ const defaultState = {
     currentSession: 1,
     longBreakInterval: 4,
     autoStart: { pomodoro: false, short: false, long: false },
+    language: 'en',
     isRunning: false
 };
 
@@ -25,7 +26,8 @@ const loadFromStorage = () => {
                 autoStart: {
                     ...defaultState.autoStart,
                     ...(parsed.autoStart || {})
-                }
+                },
+                language: parsed.language ?? defaultState.language
             };
         }
     } catch (e) {
@@ -39,7 +41,8 @@ const saveToStorage = (currentState) => {
         const toSave = {
             durations: currentState.durations,
             longBreakInterval: currentState.longBreakInterval,
-            autoStart: currentState.autoStart
+            autoStart: currentState.autoStart,
+            language: currentState.language
         };
         localStorage.setItem(STORAGE_KEY, JSON.stringify(toSave));
     } catch (e) {

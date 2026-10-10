@@ -7,6 +7,7 @@ import { init as initSettingsDrawer, closeDrawer } from './components/settingsDr
 import * as durationSettings from './components/durationSettings.js';
 import * as autoStartSettings from './components/autoStartSettings.js';
 import * as intervalSettings from './components/intervalSettings.js';
+import * as languageSettings from './components/languageSettings.js';
 import { completeSession } from './components/sessionCycle.js';
 import { playFinish } from './utils/sound.js';
 import * as notifications from './components/notifications.js';
@@ -26,25 +27,27 @@ const initSettings = () => {
   });
   autoStartSettings.render();
   intervalSettings.render();
+  languageSettings.init();
 
-  document.getElementById('stepper-dec').addEventListener('click', intervalSettings.decrement);
-  document.getElementById('stepper-inc').addEventListener('click', intervalSettings.increment);
-
-  document.getElementById('btn-save-settings').addEventListener('click', () => {
+  const saveSettings = () => {
     if (durationSettings.validate()) {
-      const newDurations = durationSettings.readFromInputs();
-      timerDisplay.setDurations(newDurations);
+      timerDisplay.setDurations(durationSettings.readFromInputs());
       autoStartSettings.readFromToggles();
       timer.reset(timerDisplay.getModeDuration(store.getState().mode));
       controls.updateToggleButton();
-      closeDrawer();
     }
-  });
+  };
+
+  document.querySelectorAll('#settings-drawer input').forEach(el => el.addEventListener('input', saveSettings));
+  document.getElementById('stepper-dec').addEventListener('click', () => { intervalSettings.decrement(); saveSettings(); });
+  document.getElementById('stepper-inc').addEventListener('click', () => { intervalSettings.increment(); saveSettings(); });
 
   document.getElementById('btn-default-settings').addEventListener('click', () => {
     durationSettings.resetDefaults();
     autoStartSettings.resetDefaults();
     intervalSettings.resetDefaults();
+    languageSettings.resetDefaults();
+    saveSettings();
   });
 };
 
@@ -95,8 +98,12 @@ tablist.addEventListener('click', (event) => {
 });
 
 
-i18n.init().then(() => {
+i18n.init('en').then(async () => {
   assertTranslations();
+  const savedLang = store.getState().language;
+  if (savedLang && savedLang !== 'en') {
+    await i18n.setLanguage(savedLang);
+  }
   timer.reset(timerDisplay.getModeDuration(store.getState().mode));
   modeTabs.init();
   timerDisplay.init();
@@ -104,6 +111,13 @@ i18n.init().then(() => {
   initSettings();
   notifications.init();
   document.documentElement.classList.remove('loading');
+
+  document.addEventListener('languagechange', () => {
+    const { mode, currentSession } = store.getState();
+    timerDisplay.render(timer.getRemainingSeconds(), mode, currentSession);
+    controls.updateToggleButton();
+    notifications.syncStatus();
+  });
 });
 
 
