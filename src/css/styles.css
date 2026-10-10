@@ -14,11 +14,16 @@ html {
     -webkit-text-size-adjust: 100%;
 }
 
+html.loading body {
+    opacity: 0;
+}
+
 body {
     min-height: 100vh;
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
     overscroll-behavior: none;
+    transition: opacity 0.2s ease-in-out;
 }
 
 img,

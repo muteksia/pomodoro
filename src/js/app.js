@@ -103,6 +103,7 @@ i18n.init().then(() => {
   controls.init();
   initSettings();
   notifications.init();
+  document.documentElement.classList.remove('loading');
 });
 
 
